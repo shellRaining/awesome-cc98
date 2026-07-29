@@ -10,6 +10,6 @@
 
 `collections/*.yaml` 只决定展品的选择、分组和顺序，不复制项目资料。README 由 `collections/readme.yaml` 和展品事实共同生成。二期的 `scenes/*.yaml` 也只保存展品 ID、房间、坐标和交互方式。
 
-YAML 使用严格的 Core Schema。仓库禁止 anchor、alias、自定义 tag 和重复键。运行时消费者不直接读取 YAML，构建过程会生成经过校验的 `generated/catalog.json` 和 `generated/assets.json`。素材清单只包含 `publish: true` 的本地文件，画廊和博物馆不能把 `candidates` 当作可发布资源。
+YAML 使用严格的 Core Schema。仓库禁止 anchor、alias、自定义 tag 和重复键。运行时消费者不直接读取 YAML，构建过程会生成经过校验的 `generated/catalog.json` 和 `generated/assets.json`。生成目录会为每位作者派生 `avatar_asset_keys` 和 `primary_avatar_asset_key`，这些 key 必须能在素材清单中解析。素材清单只包含 `publish: true` 的本地文件，画廊和博物馆不能把 `candidates` 当作可发布资源。
 
 Schema 使用整数版本。增加可选字段时更新次版本文档；删除字段或改变含义时提升主版本并提供迁移脚本。展品自身的 `record.revision` 与客户端版本号无关。

@@ -5,7 +5,16 @@ import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
 
-import { buildAssetsManifest, buildReadme, formatPlatforms } from '../scripts/generate-readme.mjs'
+import {
+  buildAssetsManifest,
+  buildAuthorAvatarIndex,
+  buildCatalogManifest,
+  buildReadme,
+  collectCreators,
+  formatPlatforms,
+  renderCreatorWall,
+  resolveAuthorAvatars,
+} from '../scripts/generate-readme.mjs'
 import { loadAndValidate, readYaml, validateCatalog } from '../scripts/lib/catalog.mjs'
 
 test('当前目录通过语义校验', async () => {
@@ -14,6 +23,13 @@ test('当前目录通过语义校验', async () => {
   assert.ok(catalog.exhibits.length >= 20)
   assert.equal(catalog.sharedAssets.assets.length, 29)
   assert.ok(catalog.sharedAssets.assets.every((asset) => asset.role === 'author_avatar'))
+  assert.equal(collectCreators(catalog).length, 21)
+  const avatarIndex = buildAuthorAvatarIndex(catalog)
+  for (const exhibit of catalog.exhibits.filter((item) => item.record.state === 'published')) {
+    for (const author of exhibit.authors) {
+      assert.ok(resolveAuthorAvatars(avatarIndex, exhibit.id, author.name).length > 0)
+    }
+  }
 })
 
 test('生成内容覆盖 README 集合中的全部展品', async () => {
@@ -27,7 +43,132 @@ test('生成内容覆盖 README 集合中的全部展品', async () => {
     const exhibit = catalog.exhibits.find((item) => item.id === id)
     assert.match(readme, new RegExp(`\\[${exhibit.name.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')}\\]`))
   }
+  assert.match(readme, /^## 创作者墙$/m)
+  assert.equal(readme.match(/<img src="\.\/assets\/authors\//g)?.length, 21)
+  assert.match(readme, /作者：<a href="https:\/\/github\.com\/shellRaining">shellRaining<\/a>/)
+  assert.match(readme, /src="\.\/assets\/authors\/github\/shellraining\.png"/)
+  assert.match(readme, /src="\.\/assets\/authors\/cc98\/infvar\.webp"/)
+  assert.equal(readme.includes('assets/authors/cc98/yutyrannus-default.png'), false)
+  for (const candidate of catalog.sharedAssets.candidates) {
+    if (candidate.asset_url) assert.equal(readme.includes(candidate.asset_url), false)
+  }
   assert.equal(readme.includes(String.fromCodePoint(0x2014)), false)
+})
+
+test('作者头像选择稳定且排除候选和未发布素材', () => {
+  const github = {
+    id: 'author-test-github-avatar',
+    role: 'author_avatar',
+    publish: true,
+    related_exhibits: ['test-exhibit'],
+    subject: { name: 'Test', platform: 'github' },
+  }
+  const cc98 = {
+    id: 'author-test-cc98-avatar',
+    role: 'author_avatar',
+    publish: true,
+    related_exhibits: ['test-exhibit'],
+    subject: { name: 'Test', platform: 'cc98' },
+  }
+  const hidden = {
+    id: 'author-test-hidden-avatar',
+    role: 'author_avatar',
+    publish: false,
+    related_exhibits: ['test-exhibit'],
+    subject: { name: 'Test', platform: 'github' },
+  }
+  const makeCatalog = (assets) => ({
+    sharedAssets: {
+      assets,
+      candidates: [
+        {
+          id: 'author-test-candidate-avatar',
+          role: 'author_avatar',
+          publish: false,
+          related_exhibits: ['test-exhibit'],
+          subject: { name: 'Test', platform: 'github' },
+        },
+      ],
+    },
+  })
+  const first = resolveAuthorAvatars(
+    buildAuthorAvatarIndex(makeCatalog([cc98, hidden, github])),
+    'test-exhibit',
+    'Test',
+  ).map((asset) => asset.id)
+  const second = resolveAuthorAvatars(
+    buildAuthorAvatarIndex(makeCatalog([github, hidden, cc98])),
+    'test-exhibit',
+    'Test',
+  ).map((asset) => asset.id)
+
+  assert.deepEqual(first, ['author-test-github-avatar', 'author-test-cc98-avatar'])
+  assert.deepEqual(second, first)
+  assert.deepEqual(
+    resolveAuthorAvatars(
+      buildAuthorAvatarIndex(makeCatalog([github, cc98])),
+      'another-exhibit',
+      'Test',
+    ),
+    [],
+  )
+})
+
+test('创作者墙编码素材路径并转义 HTML', () => {
+  const wall = renderCreatorWall({
+    collections: [
+      {
+        id: 'readme',
+        sections: [{ exhibits: ['test-exhibit'] }],
+      },
+    ],
+    exhibits: [
+      {
+        id: 'test-exhibit',
+        name: 'Work & <Demo>',
+        record: { state: 'published' },
+        authors: [
+          {
+            name: 'A & <script>',
+            url: 'https://example.com/profile?a=1&b=2',
+          },
+        ],
+        links: [
+          {
+            kind: 'homepage',
+            url: 'https://example.com/work?a=1&b=2',
+          },
+        ],
+      },
+    ],
+    sharedAssets: {
+      assets: [
+        {
+          id: 'author-test-avatar',
+          role: 'author_avatar',
+          publish: true,
+          file: 'assets/authors/A B#1.png',
+          alt: 'A "B" & <头像>',
+          related_exhibits: ['test-exhibit'],
+          subject: {
+            name: 'A & <script>',
+            platform: 'github',
+            account_name: 'A&B',
+            profile_url: 'https://example.com/profile?a=1&b=2',
+          },
+          rights: { attribution: 'A "B" & <署名>' },
+        },
+      ],
+      candidates: [],
+    },
+  })
+
+  assert.match(wall, /src="\.\/assets\/authors\/A%20B%231\.png"/)
+  assert.match(wall, /alt="A &quot;B&quot; &amp; &lt;头像&gt;"/)
+  assert.match(wall, /href="https:\/\/example\.com\/profile\?a=1&amp;b=2"/)
+  assert.match(wall, /A &amp; &lt;script&gt;/)
+  assert.match(wall, /Work &amp; &lt;Demo&gt;/)
+  assert.equal(wall.includes('<script>'), false)
 })
 
 test('平台展示优先使用实际发布平台', () => {
@@ -253,6 +394,39 @@ test('运行时素材清单只包含可发布的本地文件', () => {
   assert.equal(manifest.assets.find((asset) => asset.key.startsWith('shared:')).file, 'assets/visible.png')
   assert.equal(manifest.assets.some((asset) => asset.id === 'candidate-only'), false)
   assert.equal(manifest.assets.some((asset) => asset.id === 'draft-visible'), false)
+})
+
+test('运行时目录中的作者头像 key 均可解析到素材清单', async () => {
+  const { catalog, errors } = await loadAndValidate()
+  assert.deepEqual(errors, [])
+  const assets = buildAssetsManifest(catalog)
+  const assetKeys = new Set(assets.assets.map((asset) => asset.key))
+  const runtimeCatalog = buildCatalogManifest(catalog)
+
+  for (const exhibit of runtimeCatalog.exhibits) {
+    for (const author of exhibit.authors) {
+      assert.ok(author.avatar_asset_keys.length > 0)
+      assert.equal(author.primary_avatar_asset_key, author.avatar_asset_keys[0])
+      assert.ok(author.avatar_asset_keys.every((key) => assetKeys.has(key)))
+    }
+  }
+
+  const shellRaining = runtimeCatalog.exhibits
+    .find((exhibit) => exhibit.id === 'shellraining-cc98')
+    .authors.find((author) => author.name === 'shellRaining')
+  const infvar = runtimeCatalog.exhibits
+    .find((exhibit) => exhibit.id === 'weic-jiuba')
+    .authors.find((author) => author.name === 'infvar')
+  assert.equal(shellRaining.primary_avatar_asset_key, 'shared:author-shellraining-github-avatar')
+  assert.equal(infvar.primary_avatar_asset_key, 'shared:author-infvar-cc98-avatar')
+  assert.equal(
+    runtimeCatalog.exhibits.some((exhibit) =>
+      exhibit.authors.some((author) =>
+        author.avatar_asset_keys.some((key) => key.includes('candidate')),
+      ),
+    ),
+    false,
+  )
 })
 
 test('候选提升为本地素材时不能保留重复记录', async () => {
