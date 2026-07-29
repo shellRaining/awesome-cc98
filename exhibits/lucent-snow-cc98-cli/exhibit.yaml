@@ -1,0 +1,99 @@
+schema_version: 1
+id: lucent-snow-cc98-cli
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98-CLI
+aliases: [Lucent-Snow CC98-CLI]
+tagline: 同时面向日常浏览和脚本调用的 CC98 终端客户端
+summary: 使用 TypeScript 实现的 CC98 CLI 与 TUI，直接运行可进入三栏终端界面，带参数时则输出适合脚本处理的 JSON。
+classification:
+  kind: cli
+  relation: third_party
+  era: "2026"
+  tags: [terminal, tui, cli, typescript]
+platforms:
+  claimed:
+    - id: terminal
+      source_refs: [repository]
+  released:
+    - id: terminal
+      source_refs: [latest-release, npm-package]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-05-25"
+  latest_release_at: "2026-07-26"
+authors:
+  - name: Lucent-Snow
+    role: creator
+    url: https://github.com/Lucent-Snow
+    source_refs: [repository]
+features:
+  - title: 同时提供交互式 TUI 与默认输出 JSON 的 CLI
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持多账号、本地缓存和 WebVPN
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持搜索、通知、私信、收藏、关注与回复
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 登录令牌、WebVPN Cookie 与缓存仅保存在本机
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/Lucent-Snow/CC98-CLI
+    access: public
+    source_refs: [repository]
+  - id: npm-package
+    kind: package
+    label: npm
+    url: https://www.npmjs.com/package/cc98-cli
+    access: public
+    source_refs: [repository, npm-package]
+  - id: latest-release
+    kind: download
+    label: v0.7.1
+    url: https://github.com/Lucent-Snow/CC98-CLI/releases/tag/v0.7.1
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Lucent-Snow/CC98-CLI
+    title: Lucent-Snow/CC98-CLI GitHub repository
+    published_at: "2026-05-25"
+    retrieved_at: "2026-07-29"
+  - id: npm-package
+    kind: package_registry
+    url: https://www.npmjs.com/package/cc98-cli
+    title: cc98-cli on npm
+    published_at: "2026-07-26"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/Lucent-Snow/CC98-CLI/releases/tag/v0.7.1
+    title: CC98-CLI v0.7.1
+    published_at: "2026-07-26"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库、npm 包、MIT 许可证和 Release 元数据已核对；未在终端中登录实测。

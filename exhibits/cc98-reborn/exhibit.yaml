@@ -1,0 +1,91 @@
+schema_version: 1
+id: cc98-reborn
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 Reborn
+aliases: []
+tagline: 在保留原站能力的同时重塑 CC98 浏览界面
+summary: 面向 Chrome 与 Edge 的浏览器扩展，将常用 CC98 页面重建为更清爽的阅读界面，同时尽量复用原站控件以保留发帖、私信和设置等能力。
+classification:
+  kind: extension
+  relation: third_party
+  era: "2026"
+  tags: [browser-extension, chrome, edge, themes]
+platforms:
+  claimed:
+    - id: chrome
+      source_refs: [repository]
+    - id: edge
+      source_refs: [repository]
+  released:
+    - id: chrome
+      source_refs: [latest-release]
+    - id: edge
+      source_refs: [repository, latest-release]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-05-29"
+  latest_release_at: "2026-07-28"
+authors:
+  - name: Coran-tech
+    role: creator
+    url: https://github.com/Coran-tech
+    source_refs: [repository]
+features:
+  - title: 提供明亮、雾色和夜间阅读主题
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 重建首页、主题列表、搜索、帖子、用户中心和私信界面
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 提供版面、标题关键词和用户 ID 屏蔽规则
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持本地稍后读与 OpenID 绑定后的本地浮动水印
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/Coran-tech/cc98-reborn
+    access: public
+    source_refs: [repository]
+  - id: latest-release
+    kind: download
+    label: v0.2.10.1
+    url: https://github.com/Coran-tech/cc98-reborn/releases/tag/v0.2.10.1
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Coran-tech/cc98-reborn
+    title: Coran-tech/cc98-reborn GitHub repository
+    published_at: "2026-05-29"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/Coran-tech/cc98-reborn/releases/tag/v0.2.10.1
+    title: CC98 Reborn v0.2.10.1
+    published_at: "2026-07-28"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库、MIT 许可证和 Release 元数据已核对；功能及隐私行为来自项目 README。

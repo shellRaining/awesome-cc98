@@ -1,0 +1,90 @@
+schema_version: 1
+id: cc98-wps-table-disguise
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 摸鱼模式
+aliases: [CC98 WPS Table Disguise]
+tagline: 将 CC98 页面伪装成 WPS 或 Excel 表格的用户脚本
+summary: 由季风开发的用户脚本，把 CC98 的常用列表和帖子页面转换成表格办公界面，同时保留翻页、回复、引用和赞踩等原站操作。
+classification:
+  kind: userscript
+  relation: third_party
+  era: "2026"
+  tags: [userscript, disguise, wps, excel]
+platforms:
+  claimed:
+    - id: web
+      source_refs: [repository, greasy-fork]
+  released:
+    - id: web
+      source_refs: [greasy-fork]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-07-06"
+  latest_release_at: "2026-07-07"
+authors:
+  - name: 季风
+    role: creator
+    url: https://github.com/amiongogo
+    source_refs: [repository]
+features:
+  - title: 将首页、列表、帖子和通知等常用页面表格化显示
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 保留翻页、回复、引用、赞和踩等日常操作
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 提供脚本菜单切换表格伪装和图片显示
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 样式资源内嵌，不依赖额外远程资源
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/amiongogo/cc98-wps-table-disguise
+    access: public
+    source_refs: [repository]
+  - id: greasy-fork
+    kind: download
+    label: Greasy Fork
+    url: https://greasyfork.org/zh-CN/scripts/585813
+    access: public
+    source_refs: [repository, greasy-fork]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships:
+  - type: related_to
+    target: cc98-vscode
+    source_refs: [repository]
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/amiongogo/cc98-wps-table-disguise
+    title: amiongogo/cc98-wps-table-disguise GitHub repository
+    published_at: "2026-07-06"
+    retrieved_at: "2026-07-29"
+  - id: greasy-fork
+    kind: package_registry
+    url: https://greasyfork.org/zh-CN/scripts/585813
+    title: CC98 摸鱼模式 - Greasy Fork
+    published_at: "2026-07-07"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - README、用户脚本元数据中的 MIT 声明和 Greasy Fork 条目已核对；未在浏览器中登录实测。

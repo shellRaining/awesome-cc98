@@ -1,0 +1,95 @@
+schema_version: 1
+id: cc98-live-better
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 Live Better
+aliases: []
+tagline: 为多账号、表情、历史记录和私信而作的 CC98 增强扩展
+summary: 基于 WXT 构建的 CC98 浏览器增强扩展，通过本地存储提供多账号切换、图片表情收藏、历史检索和私信表情等能力。
+classification:
+  kind: extension
+  relation: third_party
+  era: "2026"
+  tags: [browser-extension, multi-account, emoji, local-storage]
+platforms:
+  claimed:
+    - id: chrome
+      source_refs: [repository, latest-release]
+    - id: edge
+      source_refs: [latest-release]
+    - id: firefox
+      source_refs: [latest-release]
+  released:
+    - id: chrome
+      source_refs: [latest-release]
+    - id: edge
+      source_refs: [latest-release]
+    - id: firefox
+      source_refs: [latest-release]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-05-26"
+  latest_release_at: "2026-05-28"
+authors:
+  - name: YangShu233-Snow
+    role: creator
+    url: https://github.com/YangShu233-Snow
+    source_refs: [repository]
+features:
+  - title: 加密保存多个账号凭据并支持快速切换
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 收藏帖子图片并在表情面板中复用
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 在本地保存主题浏览记录并提供检索建议
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 为私信补充表情包和收藏表情支持
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/YangShu233-Snow/cc98-live-better
+    access: public
+    source_refs: [repository]
+  - id: latest-release
+    kind: download
+    label: v0.1.7
+    url: https://github.com/YangShu233-Snow/cc98-live-better/releases/tag/v0.1.7
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/YangShu233-Snow/cc98-live-better
+    title: YangShu233-Snow/cc98-live-better GitHub repository
+    published_at: "2026-05-26"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/YangShu233-Snow/cc98-live-better/releases/tag/v0.1.7
+    title: CC98 Live Better v0.1.7
+    published_at: "2026-05-28"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库、MIT 许可证和 Chrome、Edge、Firefox 三种 Release 包已核对；功能与隐私说明来自 README。

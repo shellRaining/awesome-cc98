@@ -1,0 +1,41 @@
+schema_version: 1
+id: gallery
+title: Awesome CC98 画廊
+description: 普通网页画廊预留的策展顺序，网站实现前仍由校验器检查引用。
+sections:
+  - id: modern
+    title: 近期作品
+    description: 2025 至 2026 年出现或仍在维护的客户端、扩展和实验项目。
+    exhibits:
+      - weic-jiuba
+      - shellraining-cc98
+      - cc98-desktop
+      - cc98-reborn
+      - lucent-snow-cc98-cli
+      - walavave-cc98-cli
+      - cc98-vscode
+      - cc98-wps-table-disguise
+      - cc98-live-better
+      - cc98-cleaner
+      - cc98-ocean
+      - cc98-web-rewrite
+  - id: official
+    title: 官方参考
+    description: CC98 官方桌面网页与移动 PWA 前端。
+    exhibits:
+      - official-forum
+      - official-pwa
+  - id: archive
+    title: 历史作品
+    description: 原生移动客户端、跨平台实验和课程原型留下的项目记录。
+    exhibits:
+      - mycc98-android
+      - cc98lite-ios
+      - mycc98-ios-jailbreak
+      - cc98-u
+      - cc98-ios
+      - cc98-ionic
+      - mynewcc98
+      - cc98-app-flutter
+      - react-native-cc98
+      - such98

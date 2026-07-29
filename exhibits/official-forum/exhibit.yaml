@@ -1,0 +1,105 @@
+schema_version: 1
+id: official-forum
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 Forum
+aliases:
+  - CC98 Durian
+tagline: CC98 官方桌面网页前端
+summary: 基于 React、Redux 和 TypeScript 的 CC98 官方网页前端，仓库仍保留完整的版面、帖子、私信、搜索、用户中心和 UBB 实现。
+classification:
+  kind: official_reference
+  relation: official
+  era: "2017-2026"
+  tags:
+    - web
+    - react
+    - official
+platforms:
+  claimed:
+    - id: web
+      source_refs:
+        - repository
+  released:
+    - id: web
+      source_refs:
+        - homepage
+lifecycle:
+  stage: stable
+  maintenance: active
+  availability: public
+  first_seen_at: "2017-08-07"
+  latest_release_at: "2018-03-15"
+authors:
+  - name: ZJU-CC98
+    role: organization
+    url: https://github.com/ZJU-CC98
+    source_refs:
+      - repository
+features:
+  - title: 提供版面、帖子、搜索、私信和用户中心等完整论坛界面
+    confidence: author_claim
+    source_refs:
+      - repository
+  - title: 内含 UBB 解析器和编辑器
+    confidence: author_claim
+    source_refs:
+      - repository
+links:
+  - id: homepage
+    kind: homepage
+    label: 官方网站
+    url: https://www.cc98.org/
+    access: campus_network
+    source_refs:
+      - repository
+  - id: repository
+    kind: repository
+    label: 源码
+    url: https://github.com/ZJU-CC98/Forum
+    access: public
+    source_refs:
+      - repository
+  - id: release
+    kind: download
+    label: v3.2.0
+    url: https://github.com/ZJU-CC98/Forum/releases/tag/3.2.0
+    access: public
+    source_refs:
+      - release
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: Apache-2.0
+  source_ref: repository
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/ZJU-CC98/Forum
+    title: ZJU-CC98/Forum
+    published_at: "2017-08-07"
+    retrieved_at: "2026-07-29"
+  - id: homepage
+    kind: documentation
+    url: https://www.cc98.org/
+    title: CC98 官方网站
+    published_at: null
+    retrieved_at: "2026-07-29"
+  - id: release
+    kind: release
+    url: https://github.com/ZJU-CC98/Forum/releases/tag/3.2.0
+    title: CC98 Forum 3.2.0
+    published_at: "2018-03-15"
+    retrieved_at: "2026-07-29"
+verification:
+  level: verified
+  notes:
+    - GitHub 默认分支在 2026-07-17 仍有提交，最新 GitHub Release 仍为 2018 年的 3.2.0。

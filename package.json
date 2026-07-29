@@ -1,0 +1,24 @@
+{
+  "name": "awesome-cc98",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A verified catalog and digital museum of CC98 clients.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "generate": "node scripts/generate-readme.mjs",
+    "generate:check": "node scripts/generate-readme.mjs --check",
+    "check:links": "node scripts/check-links.mjs",
+    "test": "node --test",
+    "check": "pnpm validate && pnpm generate:check && pnpm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.6.0",
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "yaml": "^2.8.1"
+  }
+}

@@ -1,0 +1,115 @@
+schema_version: 1
+id: cc98-desktop
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 Desktop
+aliases: [CC98 桌面版]
+tagline: 使用 WinUI 3 与 Fluent Design 构建的 Windows 桌面客户端
+summary: 面向 Windows 10 和 Windows 11 的原生 CC98 客户端，提供 Microsoft Store 正式分发与 GitHub 预览版本，并包含完整的帖子浏览、搜索和 WebVPN 支持。
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2025-2026"
+  tags: [windows, winui, fluent-design, desktop]
+platforms:
+  claimed:
+    - id: windows
+      source_refs: [repository]
+  released:
+    - id: windows
+      source_refs: [store, latest-release]
+lifecycle:
+  stage: stable
+  maintenance: active
+  availability: public
+  first_seen_at: "2025-05-13"
+  latest_release_at: "2026-04-10"
+authors:
+  - name: Ansherly
+    role: creator
+    url: https://github.com/Ansherly
+    source_refs: [repository]
+features:
+  - title: 使用 Windows App SDK、WinUI 3 与 Fluent Design
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 Windows 10/11 的 x64 与 ARM64 设备
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 WebVPN，并使用 PasswordVault 保存令牌
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 提供 UBB 渲染、图片轮播、搜索、标签与麻将脸表情
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/Ansherly/CC98-Desktop
+    access: public
+    source_refs: [repository]
+  - id: store
+    kind: store
+    label: Microsoft Store
+    url: https://apps.microsoft.com/detail/9NJ1LFJ8CDQ0?hl=zh-cn&gl=CN
+    access: public
+    source_refs: [store]
+  - id: latest-release
+    kind: download
+    label: GitHub 预览版
+    url: https://github.com/Ansherly/CC98-Desktop/releases/tag/v1.2.6
+    access: public
+    source_refs: [latest-release]
+  - id: forum-log
+    kind: forum
+    label: 开发记录帖
+    url: https://cc98.shellraining.xyz/topic/6173309
+    access: public
+    source_refs: [forum-log]
+source_code:
+  availability: source_available
+  repository_link_id: repository
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+relationships:
+  - type: related_to
+    target: cc98-ocean
+    source_refs: [repository]
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Ansherly/CC98-Desktop
+    title: Ansherly/CC98-Desktop GitHub repository
+    published_at: "2025-05-13"
+    retrieved_at: "2026-07-29"
+  - id: store
+    kind: store
+    url: https://apps.microsoft.com/detail/9NJ1LFJ8CDQ0?hl=zh-cn&gl=CN
+    title: CC98 Desktop - Microsoft Store
+    published_at: "2025-08-07"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/Ansherly/CC98-Desktop/releases/tag/v1.2.6
+    title: CC98 Desktop v1.2.6 预览版本
+    published_at: "2026-04-10"
+    retrieved_at: "2026-07-29"
+  - id: forum-log
+    kind: forum_post
+    url: https://cc98.shellraining.xyz/topic/6173309
+    title: CC98 桌面客户端开发进度记录楼
+    published_at: null
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库、GitHub Release 与 Microsoft Store 条目已核对，未在 Windows 设备上完成安装测试。
+    - 仓库未提供可识别的许可证文件，故不将公开源码等同于开放源代码授权。

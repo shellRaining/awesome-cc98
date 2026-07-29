@@ -1,0 +1,84 @@
+schema_version: 1
+id: such98
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: such98
+aliases:
+  - such 98
+tagline: 因早期 Token API 问题暂停的 Android 客户端实验
+summary: cruise1008 公开的 Android CC98 客户端原型。README 自称仍有较多问题，并记录了在 Token API 问题修复前暂停继续开发的决定；仓库没有公开 Release。
+
+classification:
+  kind: prototype
+  relation: third_party
+  era: "2015"
+  tags: [android, prototype, token-api]
+
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+  released: []
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2015-02-27"
+  latest_release_at: null
+
+authors:
+  - name: cruise1008
+    role: creator
+    url: https://github.com/cruise1008
+    source_refs: [repository]
+
+features:
+  - title: 面向 Android 的 CC98 客户端原型
+    confidence: author_claim
+    source_refs: [repository]
+  - title: README 记录了 Token API 问题及暂停开发状态
+    confidence: observed
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/cruise1008/such98
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: GPL-2.0
+  source_ref: repository
+
+relationships:
+  - type: related_to
+    target: mycc98-android
+    source_refs: [repository]
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/cruise1008/such98
+    title: cruise1008/such98 GitHub repository and README
+    published_at: "2015-09-06"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - README、仓库历史与 GPL-2.0 许可证声明已核验；没有发现公开 Release，也未验证原型运行情况。

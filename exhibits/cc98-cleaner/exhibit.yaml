@@ -1,0 +1,92 @@
+schema_version: 1
+id: cc98-cleaner
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 Cleaner
+aliases: []
+tagline: 在本地识别并过滤 CC98 高戾气评论的浏览器扩展
+summary: 面向 Edge 与 Chrome 的本地评论过滤扩展，结合短句规则、中文语义向量和本地分类器隐藏攻击性内容，并允许按版面和阈值进行调整。
+classification:
+  kind: extension
+  relation: third_party
+  era: "2026"
+  tags: [browser-extension, content-filter, privacy, local-model]
+platforms:
+  claimed:
+    - id: edge
+      source_refs: [repository]
+    - id: chrome
+      source_refs: [repository]
+  released:
+    - id: edge
+      source_refs: [latest-release]
+    - id: chrome
+      source_refs: [repository, latest-release]
+lifecycle:
+  stage: stable
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-07-27"
+  latest_release_at: "2026-07-27"
+authors:
+  - name: Aleph-000
+    role: creator
+    url: https://github.com/Aleph-000
+    source_refs: [repository]
+features:
+  - title: 使用规则、中文语义向量和本地线性分类器识别高戾气内容
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持按版面启用过滤并调整识别阈值
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 可查看被隐藏的原文并保存以后保留的反馈
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 模型与判断均在本地运行，不上传评论正文
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/Aleph-000/cc98-cleaner
+    access: public
+    source_refs: [repository]
+  - id: latest-release
+    kind: download
+    label: v1.0.8
+    url: https://github.com/Aleph-000/cc98-cleaner/releases/tag/v1.0.8
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: source_available
+  repository_link_id: repository
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Aleph-000/cc98-cleaner
+    title: Aleph-000/cc98-cleaner GitHub repository
+    published_at: "2026-07-27"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/Aleph-000/cc98-cleaner/releases/tag/v1.0.8
+    title: CC98 Cleaner v1.0.8
+    published_at: "2026-07-27"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库、构建说明和 Release 包已核对；过滤效果与隐私行为未独立测试。
+    - 仓库未提供可识别的许可证声明。

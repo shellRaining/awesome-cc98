@@ -1,0 +1,83 @@
+schema_version: 1
+id: cc98lite-ios
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: CC98Lite
+aliases: []
+tagline: 2015 年面向 iPhone 的轻量 CC98 客户端
+summary: Lunarfire 开发的 Objective-C iPhone 客户端，目标是为浙江大学用户提供方便且区别于 MyCC98 的移动访问体验；公开仓库最后一次代码提交在 2016 年。
+
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2015-2016"
+  tags: [ios, historical, objective-c]
+
+platforms:
+  claimed:
+    - id: ios
+      source_refs: [repository]
+  released: []
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2015-07-17"
+  latest_release_at: null
+
+authors:
+  - name: Lunarfire
+    role: creator
+    url: https://github.com/lunarfire
+    source_refs: [repository]
+
+features:
+  - title: 面向 iPhone 的 CC98 论坛访问体验
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 以区别于同时期 MyCC98 的交互体验为设计目标
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/lunarfire/CC98Lite
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+
+relationships:
+  - type: related_to
+    target: mycc98-android
+    source_refs: [repository]
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/lunarfire/CC98Lite
+    title: lunarfire/CC98Lite GitHub repository and README
+    published_at: "2015-07-17"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 项目定位和 MIT 许可证来自仓库 README；未发现 GitHub Release，也未验证旧版 iOS 上的运行情况。

@@ -1,0 +1,49 @@
+schema_version: 1
+id: readme
+title: Awesome CC98
+description: GitHub README 使用的公开目录顺序。
+sections:
+  - id: featured
+    title: 当前可用的客户端
+    description: 有公开安装方式或在线入口，并在核验时仍有近期维护活动的完整客户端。
+    exhibits:
+      - weic-jiuba
+      - shellraining-cc98
+      - cc98-desktop
+  - id: alternative-interfaces
+    title: 浏览器、编辑器与终端体验
+    description: 通过终端、浏览器、编辑器或伪装界面访问和增强 CC98。
+    exhibits:
+      - cc98-reborn
+      - lucent-snow-cc98-cli
+      - walavave-cc98-cli
+      - cc98-vscode
+      - cc98-wps-table-disguise
+      - cc98-live-better
+      - cc98-cleaner
+  - id: previews
+    title: 预览与实验项目
+    description: 已有源码或早期产物，但功能、平台覆盖或维护状态仍不适合写成稳定版本。
+    exhibits:
+      - cc98-ocean
+      - cc98-web-rewrite
+  - id: official
+    title: 官方参考实现
+    description: 用于理解当前和历史 CC98 界面的官方前端，不与第三方客户端混排。
+    exhibits:
+      - official-forum
+      - official-pwa
+  - id: legacy
+    title: 客户端历史馆
+    description: 已停止维护或只保留历史源码和旧安装包的客户端与原型。
+    exhibits:
+      - mycc98-android
+      - cc98lite-ios
+      - mycc98-ios-jailbreak
+      - cc98-u
+      - cc98-ios
+      - cc98-ionic
+      - mynewcc98
+      - cc98-app-flutter
+      - react-native-cc98
+      - such98

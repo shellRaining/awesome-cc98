@@ -1,0 +1,78 @@
+schema_version: 1
+id: react-native-cc98
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: CC98.r
+aliases:
+  - react-native-CC98
+tagline: 2016 年基于 React Native 的 Android 客户端实验
+summary: Yutyrannus 创建的 React Native CC98 客户端原型。README 将其描述为仍在施工、当时仅支持 Android；公开仓库只留下了很早期的源码，没有 Release 或明确许可证。
+
+classification:
+  kind: prototype
+  relation: third_party
+  era: "2016"
+  tags: [android, react-native, prototype]
+
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+  released: []
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2016-09-17"
+  latest_release_at: null
+
+authors:
+  - name: Yutyrannus
+    role: creator
+    url: https://github.com/Yutyrannus
+    source_refs: [repository]
+
+features:
+  - title: 基于 React Native，早期版本仅面向 Android
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/Yutyrannus/react-native-CC98
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: source_available
+  repository_link_id: repository
+
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Yutyrannus/react-native-CC98
+    title: Yutyrannus/react-native-CC98 GitHub repository and README
+    published_at: "2016-09-17"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 项目形态、Android 平台范围与施工状态来自 README；未发现 Release 或明确许可证。

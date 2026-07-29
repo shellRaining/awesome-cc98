@@ -1,0 +1,83 @@
+schema_version: 1
+id: mycc98-ios-jailbreak
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: MyCC98 for iPhone
+aliases:
+  - biaobiaoqi/MyCC98
+tagline: iOS 6 与越狱时代的 CC98 iPhone 客户端
+summary: biaobiaoqi 于 2013 年公开的 Objective-C iPhone 客户端。README 说明它只能通过浙江大学内网访问，安装需要越狱，并要求 iOS 6.0.0 或更高版本，同时保留了大量历史界面截图。
+
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2013"
+  tags: [ios, historical, jailbreak, objective-c]
+
+platforms:
+  claimed:
+    - id: ios
+      source_refs: [repository]
+  released:
+    - id: ios
+      source_refs: [repository]
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2013-03-09"
+  latest_release_at: null
+
+authors:
+  - name: biaobiaoqi
+    role: creator
+    url: https://github.com/biaobiaoqi
+    source_refs: [repository]
+
+features:
+  - title: 面向越狱 iPhone 的原生 CC98 客户端
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 依赖浙江大学内网，支持 iOS 6.0.0 及以上版本
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库与截图
+    url: https://github.com/biaobiaoqi/MyCC98
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: GPL-3.0
+  source_ref: repository
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/biaobiaoqi/MyCC98
+    title: biaobiaoqi/MyCC98 GitHub repository and README
+    published_at: "2013-03-09"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 平台要求、网络限制和截图来自仓库 README；历史二维码分发未作为当前可用下载方式收录。

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awesome-cc98.local/schemas/assets.schema.json",
+  "title": "Awesome CC98 shared asset registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "assets"],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "file", "media_type", "alt", "source_url", "retrieved_at", "publish", "sha256", "rights"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^assets/[A-Za-z0-9._/-]+$"
+          },
+          "media_type": {
+            "enum": ["image/svg+xml", "image/png", "image/webp", "image/avif", "audio/mpeg", "audio/ogg", "video/mp4", "video/webm"]
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "retrieved_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "publish": {
+            "type": "boolean"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "rights": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "license", "creator", "attribution", "permission_record"],
+            "properties": {
+              "status": {
+                "enum": ["licensed", "permission_granted", "self_created", "generated", "permission_required", "unknown"]
+              },
+              "license": {
+                "type": ["string", "null"]
+              },
+              "creator": {
+                "type": ["string", "null"]
+              },
+              "attribution": {
+                "type": ["string", "null"]
+              },
+              "permission_record": {
+                "type": ["string", "null"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

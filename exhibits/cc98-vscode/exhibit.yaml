@@ -1,0 +1,90 @@
+schema_version: 1
+id: cc98-vscode
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98 低调浏览
+aliases: [cc98-quiet-reader, Markdown Notes Reader]
+tagline: 把 CC98 帖子变成 VS Code 中的 Markdown 笔记
+summary: 由季风开发的 VS Code 扩展，通过 CC98 开放 API 将列表和帖子显示为只读 Markdown 文档，并把浏览、登录、收藏和回复整合进编辑器工作流。
+classification:
+  kind: extension
+  relation: third_party
+  era: "2026"
+  tags: [vscode, markdown, editor, disguise]
+platforms:
+  claimed:
+    - id: vscode
+      source_refs: [repository]
+  released:
+    - id: vscode
+      source_refs: [latest-release]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-07-26"
+  latest_release_at: "2026-07-27"
+authors:
+  - name: 季风
+    role: creator
+    url: https://github.com/amiongogo
+    source_refs: [repository]
+features:
+  - title: 以只读 Markdown 文档浏览列表、版面和帖子
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持登录、提醒、收藏、关注、赞踩和回复
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 Markdown 与 UBB 回复以及按需图片预览
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 ZJU WebVPN，并将敏感凭据保存在 SecretStorage
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/amiongogo/cc98-vscode
+    access: public
+    source_refs: [repository]
+  - id: latest-release
+    kind: download
+    label: VSIX v0.1.8
+    url: https://github.com/amiongogo/cc98-vscode/releases/tag/v0.1.8
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships:
+  - type: related_to
+    target: cc98-wps-table-disguise
+    source_refs: [repository]
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/amiongogo/cc98-vscode
+    title: amiongogo/cc98-vscode GitHub repository
+    published_at: "2026-07-26"
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/amiongogo/cc98-vscode/releases/tag/v0.1.8
+    title: CC98 低调浏览 v0.1.8
+    published_at: "2026-07-27"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - README、扩展清单、MIT 许可证和 VSIX Release 元数据已核对；未在编辑器中登录实测。

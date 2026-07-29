@@ -1,0 +1,99 @@
+schema_version: 1
+id: mycc98-android
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: MyCC98
+aliases:
+  - MyCC98 for Android
+tagline: 早期面向 Android 的 CC98 原生客户端
+summary: 由 DJ 与 zsy 开发的 Android 客户端，仓库保存了 2012 至 2014 年间的源码及 2013 年发布的 APK，是 CC98 移动客户端历史中的代表性项目。
+
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2012-2014"
+  tags: [android, historical, native]
+
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+  released:
+    - id: android
+      source_refs: [release]
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: public
+  first_seen_at: "2012-07-23"
+  latest_release_at: "2013-09-25"
+
+authors:
+  - name: DJ
+    role: creator
+    url: null
+    source_refs: [repository]
+  - name: zsy
+    role: creator
+    url: null
+    source_refs: [repository]
+
+features:
+  - title: 面向 Android 的 CC98 客户端
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 采用侧滑账号管理，并集成多种 Android 开源 UI 组件
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/ZJU-CC98/MyCC98
+    access: public
+    source_refs: [repository]
+  - id: releases
+    kind: download
+    label: GitHub Releases
+    url: https://github.com/ZJU-CC98/MyCC98/releases
+    access: public
+    source_refs: [release]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: Apache-2.0
+  source_ref: repository
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/ZJU-CC98/MyCC98
+    title: ZJU-CC98/MyCC98 GitHub repository and README
+    published_at: "2012-07-23"
+    retrieved_at: "2026-07-29"
+  - id: release
+    kind: release
+    url: https://github.com/ZJU-CC98/MyCC98/releases/tag/v3.2.6
+    title: MyCC98 v3.2.6 GitHub release
+    published_at: "2013-09-25"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 仓库 README、历史提交和 GitHub Releases 已核验；未在现代 Android 设备上运行旧版 APK。

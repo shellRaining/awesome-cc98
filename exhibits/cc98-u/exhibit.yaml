@@ -1,0 +1,98 @@
+schema_version: 1
+id: cc98-u
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: CC98.u
+aliases: []
+tagline: 同时发布 Android 与 UWP 版本的 Ionic 客户端
+summary: Yutyrannus 基于 Ionic 制作的 Material Design 风格 CC98 客户端，支持侧滑菜单、下拉刷新和触底加载；GitHub Releases 曾同时提供 Android APK 与 Windows UWP 安装包。
+
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2016"
+  tags: [android, windows, ionic, material-design]
+
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+    - id: windows
+      source_refs: [repository]
+  released:
+    - id: android
+      source_refs: [release]
+    - id: windows
+      source_refs: [release]
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: public
+  first_seen_at: "2016-04-15"
+  latest_release_at: "2016-05-15"
+
+authors:
+  - name: Yutyrannus
+    role: creator
+    url: https://github.com/Yutyrannus
+    source_refs: [repository]
+
+features:
+  - title: Material Design 风格，支持侧滑菜单、下拉刷新和触底加载
+    confidence: author_claim
+    source_refs: [repository]
+  - title: GitHub Release 同时提供 Android APK 与 Windows UWP 包
+    confidence: observed
+    source_refs: [release]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/Yutyrannus/CC98.u
+    access: public
+    source_refs: [repository]
+  - id: releases
+    kind: download
+    label: GitHub Releases
+    url: https://github.com/Yutyrannus/CC98.u/releases
+    access: public
+    source_refs: [release]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Yutyrannus/CC98.u
+    title: Yutyrannus/CC98.u GitHub repository and README
+    published_at: "2016-04-15"
+    retrieved_at: "2026-07-29"
+  - id: release
+    kind: release
+    url: https://github.com/Yutyrannus/CC98.u/releases/tag/v0.1.1-Beta
+    title: CC98.u v0.1.1 Beta GitHub release
+    published_at: "2016-05-15"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - Release 页面中的 Android 与 UWP 安装包已核验；未在当前 Android 或 Windows 环境中运行历史构建。

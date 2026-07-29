@@ -1,0 +1,102 @@
+schema_version: 1
+id: weic-jiuba
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: 维C酒吧
+aliases: []
+tagline: 原生 HarmonyOS 的沉浸式 CC98 第三方客户端
+summary: 由 infvar 开发的原生 HarmonyOS 客户端，以玻璃质感界面和瀑布流首页呈现 CC98 内容，目前通过华为 AppTest 限量测试。
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2026"
+  tags: [harmonyos, native, masonry-feed, beta]
+platforms:
+  claimed:
+    - id: harmonyos
+      source_refs: [forum-install, app-test]
+  released:
+    - id: harmonyos
+      source_refs: [app-test]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: limited_test
+  first_seen_at: "2026-07-27"
+  latest_release_at: "2026-07-28"
+  availability_until: "2026-10-26"
+authors:
+  - name: infvar
+    role: creator
+    url: null
+    source_refs: [forum-install, forum-preview]
+features:
+  - title: 使用原生 HarmonyOS 的沉浸式光感与玻璃效果
+    confidence: author_claim
+    source_refs: [forum-install, forum-preview]
+  - title: 以瀑布流卡片呈现首页主题
+    confidence: author_claim
+    source_refs: [forum-install, forum-preview]
+  - title: 提供可追溯的截图水印
+    confidence: author_claim
+    source_refs: [forum-install]
+  - title: 使用图片缓存减少重复请求
+    confidence: author_claim
+    source_refs: [forum-install]
+links:
+  - id: app-test
+    kind: beta_download
+    label: Huawei AppTest
+    url: https://appgallery.huawei.com/apptest/8zUVLkyBGOu
+    access: public_limited
+    source_refs: [app-test]
+  - id: installation-post
+    kind: forum
+    label: 安装教程帖
+    url: https://cc98.shellraining.xyz/topic/6585411
+    access: public
+    source_refs: [forum-install]
+  - id: preview-post
+    kind: forum
+    label: 客户端展示帖
+    url: https://cc98.shellraining.xyz/topic/6584573
+    access: public
+    source_refs: [forum-preview]
+source_code:
+  availability: not_publicly_listed
+  repository_link_id: null
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+relationships: []
+assets: []
+sources:
+  - id: forum-install
+    kind: forum_post
+    url: https://cc98.shellraining.xyz/topic/6585411
+    title: 教程：安装原生鸿蒙cc98第三方客户端
+    published_at: "2026-07-29"
+    retrieved_at: "2026-07-29"
+  - id: forum-preview
+    kind: forum_post
+    url: https://cc98.shellraining.xyz/topic/6584573
+    title: 「小红書版cc98」原生鸿蒙cc98客户端第三方实现
+    published_at: "2026-07-27"
+    retrieved_at: "2026-07-29"
+  - id: app-test
+    kind: store
+    url: https://appgallery.huawei.com/apptest/8zUVLkyBGOu
+    title: 维C酒吧 AppTest
+    published_at: "2026-07-28"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - AppTest 页面与论坛宣传帖已核对，未在设备上完成安装测试。
+    - AppTest 测试期到 2026-10-26，帖子称测试名额为 500 人，最低系统版本为 HarmonyOS 5.0.0.130。
+    - 未发现公开源码仓库或许可证，需向作者确认后更新。

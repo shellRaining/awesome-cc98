@@ -1,0 +1,77 @@
+schema_version: 1
+id: cc98-ios
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: CC98-iOS
+aliases: []
+tagline: 内置 RVPN 访问能力的 Swift iOS 客户端实验
+summary: YuwenXiong 使用 Swift 开发的 CC98 iOS 客户端，README 宣称可通过简单配置使用内置 RVPN，从蜂窝网络访问 CC98；仓库曾计划提交 App Store，但未发现公开 Release 或已上架记录。
+
+classification:
+  kind: prototype
+  relation: third_party
+  era: "2015"
+  tags: [ios, swift, rvpn, prototype]
+
+platforms:
+  claimed:
+    - id: ios
+      source_refs: [repository]
+  released: []
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2015-12-12"
+  latest_release_at: null
+
+authors:
+  - name: YuwenXiong
+    role: creator
+    url: https://github.com/YuwenXiong
+    source_refs: [repository]
+
+features:
+  - title: 通过简单配置使用内置 RVPN 从蜂窝网络访问 CC98
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/YuwenXiong/CC98-iOS
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: source_available
+  repository_link_id: repository
+
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/YuwenXiong/CC98-iOS
+    title: YuwenXiong/CC98-iOS GitHub repository and README
+    published_at: "2015-12-12"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 内置 RVPN 和 App Store 计划来自 README；未发现公开 Release、商店上架记录或明确许可证。

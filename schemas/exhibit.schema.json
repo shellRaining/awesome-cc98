@@ -1,0 +1,494 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awesome-cc98.local/schemas/exhibit.schema.json",
+  "title": "Awesome CC98 exhibit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "record",
+    "name",
+    "aliases",
+    "tagline",
+    "summary",
+    "classification",
+    "platforms",
+    "lifecycle",
+    "authors",
+    "features",
+    "links",
+    "source_code",
+    "license",
+    "relationships",
+    "assets",
+    "sources",
+    "verification"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "revision", "created_at", "updated_at", "last_verified_at"],
+      "properties": {
+        "state": {
+          "enum": ["draft", "review", "published", "tombstone"]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "created_at": {
+          "$ref": "#/$defs/date"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/date"
+        },
+        "last_verified_at": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100
+      }
+    },
+    "tagline": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 800
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "relation", "era", "tags"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "native_client",
+            "web_client",
+            "pwa",
+            "cli",
+            "extension",
+            "userscript",
+            "prototype",
+            "official_reference"
+          ]
+        },
+        "relation": {
+          "enum": ["official", "third_party", "derivative"]
+        },
+        "era": {
+          "type": "string",
+          "pattern": "^[0-9]{4}(?:-[0-9]{4})?$"
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        }
+      }
+    },
+    "platforms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claimed", "released"],
+      "properties": {
+        "claimed": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/platformEvidence"
+          }
+        },
+        "released": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/platformEvidence"
+          }
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "maintenance", "availability", "first_seen_at", "latest_release_at"],
+      "properties": {
+        "stage": {
+          "enum": ["stable", "public_beta", "experimental", "legacy", "unknown"]
+        },
+        "maintenance": {
+          "enum": ["active", "quiet", "unmaintained", "unknown"]
+        },
+        "availability": {
+          "enum": ["public", "limited_test", "source_only", "unavailable", "unknown"]
+        },
+        "first_seen_at": {
+          "$ref": "#/$defs/date"
+        },
+        "latest_release_at": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "availability_until": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/date"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role", "url", "source_refs"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "enum": ["creator", "maintainer", "organization", "contributor"]
+          },
+          "url": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/url"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "confidence", "source_refs"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "confidence": {
+            "enum": ["author_claim", "observed", "independently_verified"]
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "label", "url", "access", "source_refs"],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "kind": {
+            "enum": ["homepage", "repository", "store", "download", "beta_download", "package", "docs", "forum", "demo"]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "url": {
+            "$ref": "#/$defs/url"
+          },
+          "access": {
+            "enum": ["public", "public_limited", "campus_network", "unavailable", "unknown"]
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "source_code": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["availability", "repository_link_id"],
+      "properties": {
+        "availability": {
+          "enum": ["open", "source_available", "not_publicly_listed", "unknown"]
+        },
+        "repository_link_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "spdx", "source_ref"],
+      "properties": {
+        "status": {
+          "enum": ["declared", "unknown", "not_applicable"]
+        },
+        "spdx": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9.+-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_ref": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "target", "source_refs"],
+        "properties": {
+          "type": {
+            "enum": ["derivative_of", "successor_to", "related_to", "official_variant_of"]
+          },
+          "target": {
+            "$ref": "#/$defs/id"
+          },
+          "source_refs": {
+            "$ref": "#/$defs/sourceRefs"
+          }
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "url", "title", "published_at", "retrieved_at"],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          },
+          "kind": {
+            "enum": ["repository", "release", "store", "package_registry", "forum_post", "official_guide", "documentation", "demo"]
+          },
+          "url": {
+            "$ref": "#/$defs/url"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "published_at": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/date"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "retrieved_at": {
+            "$ref": "#/$defs/date"
+          }
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "notes"],
+      "properties": {
+        "level": {
+          "enum": ["verified", "mixed", "self_reported", "unverified"]
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "sourceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/id"
+      }
+    },
+    "platformEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "source_refs"],
+      "properties": {
+        "id": {
+          "enum": ["web", "pwa", "windows", "macos", "linux", "android", "ios", "harmonyos", "wechat", "chrome", "edge", "firefox", "vscode", "terminal"]
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceRefs"
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "file", "media_type", "alt", "source_ref", "publish", "sha256", "rights"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "role": {
+          "enum": ["icon", "hero", "screenshot", "video", "poster", "sprite"]
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^assets/[A-Za-z0-9._/-]+$"
+        },
+        "media_type": {
+          "enum": ["image/svg+xml", "image/png", "image/webp", "image/avif", "video/mp4", "video/webm"]
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "source_ref": {
+          "$ref": "#/$defs/id"
+        },
+        "publish": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "license", "attribution"],
+          "properties": {
+            "status": {
+              "enum": ["licensed", "permission_granted", "self_created", "generated", "permission_required", "unknown"]
+            },
+            "license": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "attribution": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+schema_version: 1
+id: shellraining-cc98
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: shellRaining/cc98
+aliases: []
+tagline: 面向多设备的现代 CC98 Web 客户端
+summary: 基于 Vue 3、TypeScript 和 Vite+ 构建的第三方 CC98 Web 前端，强调 Markdown 编辑体验、多设备适配和单页应用浏览体验，并提供公开在线部署。
+classification:
+  kind: web_client
+  relation: third_party
+  era: "2026"
+  tags: [web, vue, markdown, responsive]
+platforms:
+  claimed:
+    - id: web
+      source_refs: [repository, forum-log]
+  released:
+    - id: web
+      source_refs: [live-site]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-07-08"
+  latest_release_at: null
+authors:
+  - name: shellRaining
+    role: creator
+    url: https://github.com/shellRaining
+    source_refs: [repository]
+features:
+  - title: 使用 Vue 3、TypeScript 与 Vite+ 构建
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 面向多种屏幕尺寸进行适配
+    confidence: author_claim
+    source_refs: [forum-log]
+  - title: 提供以 Markdown 为核心的编辑体验
+    confidence: author_claim
+    source_refs: [forum-log]
+  - title: 采用单页应用式的帖子翻页与返回定位体验
+    confidence: author_claim
+    source_refs: [forum-log]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/shellRaining/cc98
+    access: public
+    source_refs: [repository]
+  - id: live-site
+    kind: demo
+    label: 在线体验
+    url: https://cc98.shellraining.xyz
+    access: public
+    source_refs: [live-site]
+  - id: forum-log
+    kind: forum
+    label: 开发记录帖
+    url: https://cc98.shellraining.xyz/topic/6572979
+    access: public
+    source_refs: [forum-log]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships: []
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/shellRaining/cc98
+    title: shellRaining/cc98 GitHub repository
+    published_at: "2026-07-08"
+    retrieved_at: "2026-07-29"
+  - id: live-site
+    kind: demo
+    url: https://cc98.shellraining.xyz
+    title: CC98 第三方 Web 客户端在线部署
+    published_at: null
+    retrieved_at: "2026-07-29"
+  - id: forum-log
+    kind: forum_post
+    url: https://cc98.shellraining.xyz/topic/6572979
+    title: CC98 第三方 Web 客户端开发记录
+    published_at: null
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库元数据、许可证和在线部署已核对；功能描述来自仓库与开发记录帖。

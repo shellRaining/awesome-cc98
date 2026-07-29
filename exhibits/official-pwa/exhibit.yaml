@@ -1,0 +1,102 @@
+schema_version: 1
+id: official-pwa
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98-PWA
+aliases: []
+tagline: CC98 官方移动 PWA 实现
+summary: 使用 React、Material UI 和 TypeScript 开发的官方 PWA 仓库，主页指向 m.cc98.org。2026 年新生指引没有把 PWA 列入当前平台，因此服务状态仍待校园网环境复核。
+classification:
+  kind: official_reference
+  relation: official
+  era: "2018-2024"
+  tags:
+    - pwa
+    - mobile
+    - official
+platforms:
+  claimed:
+    - id: pwa
+      source_refs:
+        - repository
+  released:
+    - id: pwa
+      source_refs:
+        - repository
+lifecycle:
+  stage: unknown
+  maintenance: quiet
+  availability: unknown
+  first_seen_at: "2018-04-26"
+  latest_release_at: null
+authors:
+  - name: ZJU-CC98
+    role: organization
+    url: https://github.com/ZJU-CC98
+    source_refs:
+      - repository
+features:
+  - title: 面向移动设备的 PWA 访问形态
+    confidence: author_claim
+    source_refs:
+      - repository
+  - title: 使用 React 16.8、Material UI 4 和 TypeScript
+    confidence: author_claim
+    source_refs:
+      - repository
+links:
+  - id: homepage
+    kind: homepage
+    label: 移动站
+    url: https://m.cc98.org/
+    access: unknown
+    source_refs:
+      - repository
+  - id: repository
+    kind: repository
+    label: 源码
+    url: https://github.com/ZJU-CC98/CC98-PWA
+    access: public
+    source_refs:
+      - repository
+  - id: guide
+    kind: docs
+    label: 2026 使用指南
+    url: https://zjuers.com/welcome/cc98/cc98/
+    access: public
+    source_refs:
+      - guide
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships:
+  - type: official_variant_of
+    target: official-forum
+    source_refs:
+      - repository
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/ZJU-CC98/CC98-PWA
+    title: ZJU-CC98/CC98-PWA
+    published_at: "2018-04-26"
+    retrieved_at: "2026-07-29"
+  - id: guide
+    kind: official_guide
+    url: https://zjuers.com/welcome/cc98/cc98/
+    title: 2026 年浙江大学本科新生指引：CC98 论坛使用攻略
+    published_at: null
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库主页指向 m.cc98.org，但 2026 年新生指引只明确列出网页版和微信小程序。

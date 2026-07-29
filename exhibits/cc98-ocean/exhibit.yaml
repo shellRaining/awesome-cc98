@@ -1,0 +1,98 @@
+schema_version: 1
+id: cc98-ocean
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98-Ocean
+aliases: []
+tagline: 由 Flutter 驱动的 CC98 跨平台客户端计划
+summary: CC98 跨平台计划中的 Flutter 客户端，源码包含 Android、iOS、macOS、Windows、Linux 与 Web 平台工程；当前公开发行物仅核实到 Android Canary APK。
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2025-2026"
+  tags: [flutter, cross-platform, android, preview]
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+    - id: ios
+      source_refs: [repository]
+    - id: macos
+      source_refs: [repository]
+    - id: windows
+      source_refs: [repository]
+    - id: linux
+      source_refs: [repository]
+    - id: web
+      source_refs: [repository]
+  released:
+    - id: android
+      source_refs: [canary-release]
+lifecycle:
+  stage: experimental
+  maintenance: quiet
+  availability: public
+  first_seen_at: "2025-09-21"
+  latest_release_at: "2025-11-21"
+authors:
+  - name: Ansherly
+    role: creator
+    url: https://github.com/Ansherly
+    source_refs: [repository]
+features:
+  - title: 使用 Flutter 与 Dart 构建统一的跨平台代码库
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 源码包含 Android、iOS、macOS、Windows、Linux 与 Web 平台工程
+    confidence: observed
+    source_refs: [repository]
+  - title: 提供 Android v0.0.1 Canary APK
+    confidence: observed
+    source_refs: [canary-release]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/Ansherly/CC98-Ocean
+    access: public
+    source_refs: [repository]
+  - id: canary-release
+    kind: beta_download
+    label: Android Canary
+    url: https://github.com/Ansherly/CC98-Ocean/releases/tag/v0.0.1%2CCannary
+    access: public
+    source_refs: [canary-release]
+source_code:
+  availability: source_available
+  repository_link_id: repository
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+relationships:
+  - type: related_to
+    target: cc98-desktop
+    source_refs: [repository]
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/Ansherly/CC98-Ocean
+    title: Ansherly/CC98-Ocean GitHub repository
+    published_at: "2025-09-21"
+    retrieved_at: "2026-07-29"
+  - id: canary-release
+    kind: release
+    url: https://github.com/Ansherly/CC98-Ocean/releases/tag/v0.0.1%2CCannary
+    title: CC98-Ocean v0.0.1 Canary 测试版本
+    published_at: "2025-11-21"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 仓库平台目录和 Android APK Release 已核对；不能据此认定其余五个平台已有可用发行版。
+    - 仓库未提供可识别的许可证声明，且最近一次代码推送为 2026-01-24。

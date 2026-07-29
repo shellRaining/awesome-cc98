@@ -1,0 +1,102 @@
+schema_version: 1
+id: walavave-cc98-cli
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+name: CC98-CLI
+aliases: [walavave CC98-CLI]
+tagline: 带有 Yazi 风格界面和终端图片支持的 CC98 TUI
+summary: 改版自 Lucent-Snow/CC98-CLI 的终端客户端，重点提供 Yazi 风格布局、鼠标操作、WebVPN/RVPN 和 Kitty、iTerm2 图片预览。
+classification:
+  kind: cli
+  relation: derivative
+  era: "2026"
+  tags: [terminal, tui, yazi, derivative]
+platforms:
+  claimed:
+    - id: terminal
+      source_refs: [repository]
+  released:
+    - id: terminal
+      source_refs: [latest-release, npm-package]
+lifecycle:
+  stage: public_beta
+  maintenance: active
+  availability: public
+  first_seen_at: "2026-05-28"
+  latest_release_at: "2026-07-17"
+authors:
+  - name: walavave
+    role: creator
+    url: https://github.com/walavave
+    source_refs: [repository]
+features:
+  - title: 提供 Yazi 风格三栏 TUI 和鼠标点击、滚动与分栏拖动
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 WebVPN 与基于 aTrust 验证的 RVPN
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持 Kitty graphics protocol 与 iTerm2 终端图片预览
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 提供回复、文件下载、图形化登录和可配置快捷键
+    confidence: author_claim
+    source_refs: [repository]
+links:
+  - id: repository
+    kind: repository
+    label: GitHub
+    url: https://github.com/walavave/CC98-CLI
+    access: public
+    source_refs: [repository]
+  - id: npm-package
+    kind: package
+    label: npm
+    url: https://www.npmjs.com/package/@walavave/cc98-cli
+    access: public
+    source_refs: [repository, npm-package]
+  - id: latest-release
+    kind: download
+    label: v0.3.0
+    url: https://github.com/walavave/CC98-CLI/releases/tag/v0.3.0
+    access: public
+    source_refs: [latest-release]
+source_code:
+  availability: open
+  repository_link_id: repository
+license:
+  status: declared
+  spdx: MIT
+  source_ref: repository
+relationships:
+  - type: derivative_of
+    target: lucent-snow-cc98-cli
+    source_refs: [repository]
+assets: []
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/walavave/CC98-CLI
+    title: walavave/CC98-CLI GitHub repository
+    published_at: "2026-05-28"
+    retrieved_at: "2026-07-29"
+  - id: npm-package
+    kind: package_registry
+    url: https://www.npmjs.com/package/@walavave/cc98-cli
+    title: "@walavave/cc98-cli on npm"
+    published_at: null
+    retrieved_at: "2026-07-29"
+  - id: latest-release
+    kind: release
+    url: https://github.com/walavave/CC98-CLI/releases/tag/v0.3.0
+    title: CC98-CLI v0.3.0
+    published_at: "2026-07-17"
+    retrieved_at: "2026-07-29"
+verification:
+  level: mixed
+  notes:
+    - 派生关系、仓库、npm 包、MIT 许可证与 Release 元数据已核对；功能描述来自 README。

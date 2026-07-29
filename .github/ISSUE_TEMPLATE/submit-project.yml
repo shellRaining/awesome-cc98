@@ -1,0 +1,57 @@
+name: 推荐一个项目
+description: 推荐新的 CC98 客户端、界面或历史项目
+title: "[项目推荐] "
+labels:
+  - submission
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 项目名称
+    validations:
+      required: true
+  - type: input
+    id: primary-url
+    attributes:
+      label: 仓库、商店或主页
+      description: 请提供至少一个可公开访问的一手来源。
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 项目形态
+      options:
+        - 原生客户端
+        - Web 或 PWA
+        - CLI 或 TUI
+        - 浏览器扩展
+        - 编辑器扩展
+        - 用户脚本
+        - 历史原型
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: 简介和特色
+      description: 请区分亲自验证的功能和作者宣传中的功能。
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 其他来源
+      description: 可填写 Release、应用商店、包注册表、宣传帖和许可证链接。
+  - type: textarea
+    id: assets
+    attributes:
+      label: 截图与授权
+      description: 如需提交图片，请说明来源、许可证或授权情况。不要上传真实论坛内容。
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 隐私确认
+      options:
+        - label: 我提交的内容不包含账号凭据、私信、IP 或未脱敏的论坛数据。
+          required: true

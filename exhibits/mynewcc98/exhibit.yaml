@@ -1,0 +1,94 @@
+schema_version: 1
+id: mynewcc98
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: MyNewCC98
+aliases: []
+tagline: 围绕 CC98 API v2 重写的实验性 Android 客户端
+summary: 6769 开发的实验性 Android 客户端，使用 Retrofit 接入 CC98 API v2，并尝试以 OAuth、React 与 TypeScript 重构网络和帖子呈现层；GitHub Releases 保留了 2018 年的 APK，仓库现已归档。
+
+classification:
+  kind: native_client
+  relation: third_party
+  era: "2017-2018"
+  tags: [android, api-v2, experimental, archived]
+
+platforms:
+  claimed:
+    - id: android
+      source_refs: [repository]
+  released:
+    - id: android
+      source_refs: [release]
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: public
+  first_seen_at: "2017-07-11"
+  latest_release_at: "2018-05-28"
+
+authors:
+  - name: "6769"
+    role: creator
+    url: https://github.com/6769
+    source_refs: [repository]
+
+features:
+  - title: 使用 Retrofit 接入 CC98 API v2，并采用 OAuth 认证
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 支持分享帖子、保存图片、帖子长截图与趣味表情
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 归档仓库
+    url: https://github.com/6769/MyNewCC98
+    access: public
+    source_refs: [repository]
+  - id: releases
+    kind: download
+    label: GitHub Releases
+    url: https://github.com/6769/MyNewCC98/releases
+    access: public
+    source_refs: [release]
+
+source_code:
+  availability: source_available
+  repository_link_id: repository
+
+license:
+  status: unknown
+  spdx: null
+  source_ref: null
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/6769/MyNewCC98
+    title: 6769/MyNewCC98 archived GitHub repository and README
+    published_at: "2017-07-11"
+    retrieved_at: "2026-07-29"
+  - id: release
+    kind: release
+    url: https://github.com/6769/MyNewCC98/releases/tag/0.1.63
+    title: MyNewCC98 0.1.63 prerelease
+    published_at: "2018-05-28"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 仓库归档状态、README 与历史 APK 已核验；没有发现明确的项目许可证，也未运行历史构建。

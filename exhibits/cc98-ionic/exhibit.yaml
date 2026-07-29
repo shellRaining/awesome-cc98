@@ -1,0 +1,82 @@
+schema_version: 1
+id: cc98-ionic
+
+record:
+  state: published
+  revision: 1
+  created_at: "2026-07-29"
+  updated_at: "2026-07-29"
+  last_verified_at: "2026-07-29"
+
+name: cc98-ionic
+aliases: []
+tagline: 基于 Ionic 与 CC98 API 的早期混合移动客户端
+summary: haoqunjiang 制作的 Ionic 第三方客户端，理论上可构建到 iOS 与 Android，但 README 仅记录了 iOS 测试流程；项目使用 CC98 API 的 OAuth 配置，并已明确宣布停止开发。
+
+classification:
+  kind: prototype
+  relation: third_party
+  era: "2015-2018"
+  tags: [ios, android, ionic, oauth]
+
+platforms:
+  claimed:
+    - id: ios
+      source_refs: [repository]
+    - id: android
+      source_refs: [repository]
+  released: []
+
+lifecycle:
+  stage: legacy
+  maintenance: unmaintained
+  availability: source_only
+  first_seen_at: "2015-04-24"
+  latest_release_at: null
+
+authors:
+  - name: haoqunjiang
+    role: creator
+    url: https://github.com/haoqunjiang
+    source_refs: [repository]
+
+features:
+  - title: 使用 Ionic 构建，README 提供经测试的 iOS 构建流程
+    confidence: author_claim
+    source_refs: [repository]
+  - title: 通过 CC98 API 的 client ID、secret 与回调地址完成 OAuth 配置
+    confidence: author_claim
+    source_refs: [repository]
+
+links:
+  - id: repository
+    kind: repository
+    label: GitHub 仓库
+    url: https://github.com/haoqunjiang/cc98-ionic
+    access: public
+    source_refs: [repository]
+
+source_code:
+  availability: open
+  repository_link_id: repository
+
+license:
+  status: declared
+  spdx: BSD-3-Clause
+  source_ref: repository
+
+relationships: []
+assets: []
+
+sources:
+  - id: repository
+    kind: repository
+    url: https://github.com/haoqunjiang/cc98-ionic
+    title: haoqunjiang/cc98-ionic GitHub repository and README
+    published_at: "2015-04-24"
+    retrieved_at: "2026-07-29"
+
+verification:
+  level: mixed
+  notes:
+    - 构建说明、OAuth 配置与停止开发声明来自 README；未发现可直接下载的公开构建。
