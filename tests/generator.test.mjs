@@ -167,7 +167,8 @@ test('创作者墙编码素材路径并转义 HTML', () => {
   assert.match(wall, /alt="A &quot;B&quot; &amp; &lt;头像&gt;"/)
   assert.match(wall, /href="https:\/\/example\.com\/profile\?a=1&amp;b=2"/)
   assert.match(wall, /A &amp; &lt;script&gt;/)
-  assert.match(wall, /Work &amp; &lt;Demo&gt;/)
+  assert.equal(wall.includes('Work &amp; &lt;Demo&gt;'), false)
+  assert.equal(wall.includes('GitHub @'), false)
   assert.equal(wall.includes('<script>'), false)
 })
 

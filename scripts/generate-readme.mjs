@@ -183,32 +183,15 @@ function renderCreatorCell(creator, columnSpan = 1) {
   const name = profileUrl
     ? `<strong><a href="${profileUrl}">${escapeHtml(creator.name)}</a></strong>`
     : `<strong>${escapeHtml(creator.name)}</strong>`
-  const account = avatar
-    ? (() => {
-        const platform = avatar.subject.platform === 'github' ? 'GitHub' : 'CC98'
-        const accountName = avatar.subject.account_name
-        const label =
-          accountName.toLocaleLowerCase('en-US') === creator.name.toLocaleLowerCase('en-US')
-            ? platform
-            : `${platform} @${escapeHtml(accountName)}`
-        return `<sub>${label}</sub><br>`
-      })()
-    : ''
-  const works = creator.works
-    .map((work) => `<a href="${escapeHtml(work.url)}">${escapeHtml(work.name)}</a>`)
-    .join(' · ')
   const cellWidth = Math.floor((100 * columnSpan) / creatorWallColumns)
   const columnSpanAttribute = columnSpan > 1 ? ` colspan="${columnSpan}"` : ''
 
   return [
     `      <td align="center" valign="top" width="${cellWidth}%"${columnSpanAttribute}>`,
     image,
-    `        ${name}<br>`,
-    account ? `        ${account}` : '',
-    `        <sub>${works}</sub>`,
+    `        ${name}`,
     '      </td>',
   ]
-    .filter(Boolean)
     .join('\n')
 }
 
@@ -230,7 +213,7 @@ export function renderCreatorWall(catalog) {
   return [
     '## 创作者墙',
     '',
-    '感谢以下创作者与维护组织同意让作品和公开头像加入 Awesome CC98。这里统一保留账号署名和主页链接；点击作品名可以前往对应项目。具体范围见 [作者头像授权摘要](docs/permissions/author-avatars-2026-07-29.md)。',
+    '感谢以下创作者与维护组织同意让作品和公开头像加入 Awesome CC98。头像和姓名均链接到公开主页，具体作品与作者关系见上方目录；授权范围见 [作者头像授权摘要](docs/permissions/author-avatars-2026-07-29.md)。',
     '',
     '<table>',
     '  <tbody>',

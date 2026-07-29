@@ -81,7 +81,7 @@
 
 ## 创作者墙
 
-感谢以下创作者与维护组织同意让作品和公开头像加入 Awesome CC98。这里统一保留账号署名和主页链接；点击作品名可以前往对应项目。具体范围见 [作者头像授权摘要](docs/permissions/author-avatars-2026-07-29.md)。
+感谢以下创作者与维护组织同意让作品和公开头像加入 Awesome CC98。头像和姓名均链接到公开主页，具体作品与作者关系见上方目录；授权范围见 [作者头像授权摘要](docs/permissions/author-avatars-2026-07-29.md)。
 
 <table>
   <tbody>
@@ -90,49 +90,37 @@
         <a href="https://cc98.shellraining.xyz/user/id/818074">
           <img src="./assets/authors/cc98/infvar.webp" width="64" alt="infvar 的 CC98 公开头像" title="作者头像：infvar（CC98 @infvar）">
         </a><br>
-        <strong><a href="https://cc98.shellraining.xyz/user/id/818074">infvar</a></strong><br>
-        <sub>CC98</sub><br>
-        <sub><a href="https://appgallery.huawei.com/apptest/8zUVLkyBGOu">维C酒吧</a></sub>
+        <strong><a href="https://cc98.shellraining.xyz/user/id/818074">infvar</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/shellRaining">
           <img src="./assets/authors/github/shellraining.png" width="64" alt="shellRaining 的 GitHub 公开头像" title="作者头像：shellRaining（GitHub @shellRaining）">
         </a><br>
-        <strong><a href="https://github.com/shellRaining">shellRaining</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/shellRaining/cc98">shellRaining/cc98</a></sub>
+        <strong><a href="https://github.com/shellRaining">shellRaining</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/Ansherly">
           <img src="./assets/authors/github/ansherly.jpg" width="64" alt="Ansherly 的 GitHub 公开头像" title="作者头像：Ansherly（GitHub @Ansherly）">
         </a><br>
-        <strong><a href="https://github.com/Ansherly">Ansherly</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://apps.microsoft.com/detail/9NJ1LFJ8CDQ0?hl=zh-cn&amp;gl=CN">CC98 Desktop</a> · <a href="https://github.com/Ansherly/CC98-Ocean/releases/tag/v0.0.1%2CCannary">CC98-Ocean</a></sub>
+        <strong><a href="https://github.com/Ansherly">Ansherly</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/Coran-tech">
           <img src="./assets/authors/github/coran-tech.jpg" width="64" alt="Coran-tech 的 GitHub 公开头像" title="作者头像：Coran-tech（GitHub @Coran-tech）">
         </a><br>
-        <strong><a href="https://github.com/Coran-tech">Coran-tech</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/Coran-tech/cc98-reborn">CC98 Reborn</a></sub>
+        <strong><a href="https://github.com/Coran-tech">Coran-tech</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/Lucent-Snow">
           <img src="./assets/authors/github/lucent-snow.jpg" width="64" alt="Lucent-Snow 的 GitHub 公开头像" title="作者头像：Lucent-Snow（GitHub @Lucent-Snow）">
         </a><br>
-        <strong><a href="https://github.com/Lucent-Snow">Lucent-Snow</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://www.npmjs.com/package/cc98-cli">CC98-CLI</a></sub>
+        <strong><a href="https://github.com/Lucent-Snow">Lucent-Snow</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/walavave">
           <img src="./assets/authors/github/walavave.jpg" width="64" alt="walavave 的 GitHub 公开头像" title="作者头像：walavave（GitHub @walavave）">
         </a><br>
-        <strong><a href="https://github.com/walavave">walavave</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://www.npmjs.com/package/@walavave/cc98-cli">CC98-CLI</a></sub>
+        <strong><a href="https://github.com/walavave">walavave</a></strong>
       </td>
     </tr>
     <tr>
@@ -140,49 +128,37 @@
         <a href="https://github.com/amiongogo">
           <img src="./assets/authors/github/amiongogo.png" width="64" alt="季风的 GitHub 公开头像" title="作者头像：季风（GitHub @amiongogo）">
         </a><br>
-        <strong><a href="https://github.com/amiongogo">季风</a></strong><br>
-        <sub>GitHub @amiongogo</sub><br>
-        <sub><a href="https://github.com/amiongogo/cc98-vscode">CC98 低调浏览</a> · <a href="https://github.com/amiongogo/cc98-wps-table-disguise">CC98 摸鱼模式</a></sub>
+        <strong><a href="https://github.com/amiongogo">季风</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/YangShu233-Snow">
           <img src="./assets/authors/github/yangshu233-snow.jpg" width="64" alt="YangShu233-Snow 的 GitHub 公开头像" title="作者头像：YangShu233-Snow（GitHub @YangShu233-Snow）">
         </a><br>
-        <strong><a href="https://github.com/YangShu233-Snow">YangShu233-Snow</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/YangShu233-Snow/cc98-live-better">CC98 Live Better</a></sub>
+        <strong><a href="https://github.com/YangShu233-Snow">YangShu233-Snow</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/Aleph-000">
           <img src="./assets/authors/github/aleph-000.jpg" width="64" alt="Aleph-000 的 GitHub 公开头像" title="作者头像：Aleph-000（GitHub @Aleph-000）">
         </a><br>
-        <strong><a href="https://github.com/Aleph-000">Aleph-000</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/Aleph-000/cc98-cleaner">CC98 Cleaner</a></sub>
+        <strong><a href="https://github.com/Aleph-000">Aleph-000</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/mise42">
           <img src="./assets/authors/github/mise42.jpg" width="64" alt="mise42 的 GitHub 公开头像" title="作者头像：mise42（GitHub @mise42）">
         </a><br>
-        <strong><a href="https://github.com/mise42">mise42</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/mise42/cc98-web-rewrite">CC98 Web Rewrite</a></sub>
+        <strong><a href="https://github.com/mise42">mise42</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/ZJU-CC98">
           <img src="./assets/authors/github/zju-cc98.png" width="64" alt="ZJU-CC98 的 GitHub 组织头像" title="组织头像：ZJU-CC98（GitHub @ZJU-CC98）">
         </a><br>
-        <strong><a href="https://github.com/ZJU-CC98">ZJU-CC98</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://www.cc98.org/">CC98 Forum</a> · <a href="https://m.cc98.org/">CC98-PWA</a></sub>
+        <strong><a href="https://github.com/ZJU-CC98">ZJU-CC98</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/djj0809">
           <img src="./assets/authors/github/djj0809.jpg" width="64" alt="DJ 的 GitHub 公开头像" title="作者头像：DJ（GitHub @djj0809）">
         </a><br>
-        <strong><a href="https://github.com/djj0809">DJ</a></strong><br>
-        <sub>GitHub @djj0809</sub><br>
-        <sub><a href="https://github.com/ZJU-CC98/MyCC98">MyCC98</a></sub>
+        <strong><a href="https://github.com/djj0809">DJ</a></strong>
       </td>
     </tr>
     <tr>
@@ -190,49 +166,37 @@
         <a href="https://github.com/zsy056">
           <img src="./assets/authors/github/zsy056.jpg" width="64" alt="zsy 的 GitHub 公开头像" title="作者头像：zsy（GitHub @zsy056）">
         </a><br>
-        <strong><a href="https://github.com/zsy056">zsy</a></strong><br>
-        <sub>GitHub @zsy056</sub><br>
-        <sub><a href="https://github.com/ZJU-CC98/MyCC98">MyCC98</a></sub>
+        <strong><a href="https://github.com/zsy056">zsy</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/lunarfire">
           <img src="./assets/authors/github/lunarfire.png" width="64" alt="Lunarfire 的 GitHub 公开头像" title="作者头像：Lunarfire（GitHub @lunarfire）">
         </a><br>
-        <strong><a href="https://github.com/lunarfire">Lunarfire</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/lunarfire/CC98Lite">CC98Lite</a></sub>
+        <strong><a href="https://github.com/lunarfire">Lunarfire</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/biaobiaoqi">
           <img src="./assets/authors/github/biaobiaoqi.jpg" width="64" alt="biaobiaoqi 的 GitHub 公开头像" title="作者头像：biaobiaoqi（GitHub @biaobiaoqi）">
         </a><br>
-        <strong><a href="https://github.com/biaobiaoqi">biaobiaoqi</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/biaobiaoqi/MyCC98">MyCC98 for iPhone</a></sub>
+        <strong><a href="https://github.com/biaobiaoqi">biaobiaoqi</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/Yutyrannus">
           <img src="./assets/authors/github/yutyrannus.png" width="64" alt="Yutyrannus 的 GitHub 公开头像" title="作者头像：Yutyrannus（GitHub @Yutyrannus）">
         </a><br>
-        <strong><a href="https://github.com/Yutyrannus">Yutyrannus</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/Yutyrannus/CC98.u">CC98.u</a> · <a href="https://github.com/Yutyrannus/react-native-CC98">CC98.r</a></sub>
+        <strong><a href="https://github.com/Yutyrannus">Yutyrannus</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/YuwenXiong">
           <img src="./assets/authors/github/yuwenxiong.png" width="64" alt="YuwenXiong 的 GitHub 公开头像" title="作者头像：YuwenXiong（GitHub @YuwenXiong）">
         </a><br>
-        <strong><a href="https://github.com/YuwenXiong">YuwenXiong</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/YuwenXiong/CC98-iOS">CC98-iOS</a></sub>
+        <strong><a href="https://github.com/YuwenXiong">YuwenXiong</a></strong>
       </td>
       <td align="center" valign="top" width="16%">
         <a href="https://github.com/haoqunjiang">
           <img src="./assets/authors/github/haoqunjiang.jpg" width="64" alt="haoqunjiang 的 GitHub 公开头像" title="作者头像：haoqunjiang（GitHub @haoqunjiang）">
         </a><br>
-        <strong><a href="https://github.com/haoqunjiang">haoqunjiang</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/haoqunjiang/cc98-ionic">cc98-ionic</a></sub>
+        <strong><a href="https://github.com/haoqunjiang">haoqunjiang</a></strong>
       </td>
     </tr>
     <tr>
@@ -240,25 +204,19 @@
         <a href="https://github.com/6769">
           <img src="./assets/authors/github/6769.jpg" width="64" alt="6769 的 GitHub 公开头像" title="作者头像：6769（GitHub @6769）">
         </a><br>
-        <strong><a href="https://github.com/6769">6769</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/6769/MyNewCC98">MyNewCC98</a></sub>
+        <strong><a href="https://github.com/6769">6769</a></strong>
       </td>
       <td align="center" valign="top" width="33%" colspan="2">
         <a href="https://github.com/Zhytou">
           <img src="./assets/authors/github/zhytou.jpg" width="64" alt="Zhytou 的 GitHub 公开头像" title="作者头像：Zhytou（GitHub @Zhytou）">
         </a><br>
-        <strong><a href="https://github.com/Zhytou">Zhytou</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/Zhytou/CC98-APP">CC98-APP</a></sub>
+        <strong><a href="https://github.com/Zhytou">Zhytou</a></strong>
       </td>
       <td align="center" valign="top" width="33%" colspan="2">
         <a href="https://github.com/cruise1008">
           <img src="./assets/authors/github/cruise1008.jpg" width="64" alt="cruise1008 的 GitHub 公开头像" title="作者头像：cruise1008（GitHub @cruise1008）">
         </a><br>
-        <strong><a href="https://github.com/cruise1008">cruise1008</a></strong><br>
-        <sub>GitHub</sub><br>
-        <sub><a href="https://github.com/cruise1008/such98">such98</a></sub>
+        <strong><a href="https://github.com/cruise1008">cruise1008</a></strong>
       </td>
     </tr>
   </tbody>
