@@ -55,7 +55,7 @@ test('找不到来源引用时拒绝目录', async () => {
   assert.ok(errors.some((error) => error.includes('找不到来源 missing-source')))
 })
 
-test('没有发布权利的素材不能公开', async () => {
+test('素材进入仓库前必须完成权利和隐私审核', async () => {
   const { catalog } = await loadAndValidate()
   const temporaryDirectory = await mkdtemp(path.join(os.tmpdir(), 'awesome-cc98-assets-'))
   try {
@@ -78,12 +78,18 @@ test('没有发布权利的素材不能公开', async () => {
           media_type: 'image/png',
           alt: '测试图片',
           source_ref: original.sources[0].id,
-          publish: true,
+          publish: false,
           sha256: digest,
           rights: {
             status: 'permission_required',
             license: null,
+            creator: '测试作者',
             attribution: null,
+            permission_record: null,
+          },
+          privacy: {
+            status: 'clear',
+            notes: '测试素材不包含论坛内容或个人信息',
           },
         },
       ],
@@ -92,10 +98,105 @@ test('没有发布权利的素材不能公开', async () => {
       ...catalog,
       exhibits: [changed, ...catalog.exhibits.slice(1)],
     })
-    assert.ok(errors.some((error) => error.includes('发布素材前需确认许可证或取得授权')))
+    assert.ok(errors.some((error) => error.includes('素材文件进入仓库前需确认许可证或取得授权')))
+
+    const needsRedaction = {
+      ...changed,
+      assets: [
+        {
+          ...changed.assets[0],
+          rights: {
+            status: 'self_created',
+            license: null,
+            creator: '测试作者',
+            attribution: '测试作者',
+            permission_record: null,
+          },
+          privacy: {
+            status: 'needs_redaction',
+            notes: '测试素材仍包含需要处理的用户信息',
+          },
+        },
+      ],
+    }
+    const privacyErrors = await validateCatalog({
+      ...catalog,
+      exhibits: [needsRedaction, ...catalog.exhibits.slice(1)],
+    })
+    assert.ok(privacyErrors.some((error) => error.includes('素材文件进入仓库前需完成隐私复核和必要脱敏')))
   } finally {
     await rm(temporaryDirectory, { recursive: true, force: true })
   }
+})
+
+test('资产候选必须引用已有展品', async () => {
+  const { catalog } = await loadAndValidate()
+  const candidate = {
+    ...catalog.sharedAssets.candidates[0],
+    id: 'missing-exhibit-candidate',
+    exhibit_id: 'missing-exhibit',
+  }
+  const errors = await validateCatalog({
+    ...catalog,
+    sharedAssets: {
+      ...catalog.sharedAssets,
+      candidates: [...catalog.sharedAssets.candidates, candidate],
+    },
+  })
+  assert.ok(errors.some((error) => error.includes('找不到展品 missing-exhibit')))
+})
+
+test('资产候选不得直接发布', async () => {
+  const { catalog } = await loadAndValidate()
+  const changed = {
+    ...catalog.sharedAssets.candidates[0],
+    publish: true,
+  }
+  const errors = await validateCatalog({
+    ...catalog,
+    sharedAssets: {
+      ...catalog.sharedAssets,
+      candidates: [changed, ...catalog.sharedAssets.candidates.slice(1)],
+    },
+  })
+  assert.ok(errors.some((error) => error.includes('候选素材不得直接发布')))
+})
+
+test('候选提升为本地素材时不能保留重复记录', async () => {
+  const { catalog } = await loadAndValidate()
+  const candidate = catalog.sharedAssets.candidates[0]
+  const exhibitIndex = catalog.exhibits.findIndex((exhibit) => exhibit.id === candidate.exhibit_id)
+  const original = catalog.exhibits[exhibitIndex]
+  const changed = {
+    ...original,
+    assets: [
+      {
+        id: candidate.id,
+        role: 'screenshot',
+        file: 'assets/not-created.png',
+        media_type: 'image/png',
+        alt: '测试图片',
+        source_ref: original.sources[0].id,
+        publish: false,
+        sha256: '0'.repeat(64),
+        rights: {
+          status: 'licensed',
+          license: 'MIT',
+          creator: '测试作者',
+          attribution: '测试作者',
+          permission_record: null,
+        },
+        privacy: {
+          status: 'clear',
+          notes: '测试素材不包含论坛内容或个人信息',
+        },
+      },
+    ],
+  }
+  const exhibits = [...catalog.exhibits]
+  exhibits[exhibitIndex] = changed
+  const errors = await validateCatalog({ ...catalog, exhibits })
+  assert.ok(errors.some((error) => error.includes(`不能同时使用 ID ${candidate.id}`)))
 })
 
 test('禁止 YAML anchor 和 alias', async () => {

@@ -426,7 +426,7 @@
     "asset": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "role", "file", "media_type", "alt", "source_ref", "publish", "sha256", "rights"],
+      "required": ["id", "role", "file", "media_type", "alt", "source_ref", "publish", "sha256", "rights", "privacy"],
       "properties": {
         "id": {
           "$ref": "#/$defs/id"
@@ -439,7 +439,7 @@
           "pattern": "^assets/[A-Za-z0-9._/-]+$"
         },
         "media_type": {
-          "enum": ["image/svg+xml", "image/png", "image/webp", "image/avif", "video/mp4", "video/webm"]
+          "enum": ["image/svg+xml", "image/png", "image/jpeg", "image/gif", "image/webp", "image/avif", "video/mp4", "video/webm"]
         },
         "alt": {
           "type": "string",
@@ -459,7 +459,7 @@
         "rights": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["status", "license", "attribution"],
+          "required": ["status", "license", "creator", "attribution", "permission_record"],
           "properties": {
             "status": {
               "enum": ["licensed", "permission_granted", "self_created", "generated", "permission_required", "unknown"]
@@ -475,6 +475,11 @@
                 }
               ]
             },
+            "creator": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
             "attribution": {
               "anyOf": [
                 {
@@ -485,6 +490,32 @@
                   "type": "null"
                 }
               ]
+            },
+            "permission_record": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "privacy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "notes"],
+          "properties": {
+            "status": {
+              "enum": ["clear", "public_promotion", "public_identity", "needs_redaction", "unknown"]
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
             }
           }
         }

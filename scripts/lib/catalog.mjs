@@ -10,6 +10,7 @@ import { isAlias, isMap, isPair, isSeq, parseDocument } from 'yaml'
 export const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 const publishableRights = new Set(['licensed', 'permission_granted', 'self_created', 'generated'])
+const committablePrivacy = new Set(['clear', 'public_promotion', 'public_identity'])
 
 function walkYamlNode(node, file) {
   if (!node) return
@@ -125,6 +126,15 @@ async function sha256(file) {
   return createHash('sha256').update(contents).digest('hex')
 }
 
+function checkRightsBasis(rights, location, errors) {
+  if (rights.status === 'licensed' && !rights.license) {
+    errors.push(`${location}/rights: licensed 素材必须填写许可证`)
+  }
+  if (rights.status === 'permission_granted' && !rights.permission_record) {
+    errors.push(`${location}/rights: permission_granted 素材必须填写许可记录`)
+  }
+}
+
 async function checkAssetFile({ root, baseDirectory, asset, location, errors }) {
   const absoluteFile = path.resolve(baseDirectory, asset.file)
   const relative = path.relative(baseDirectory, absoluteFile)
@@ -140,8 +150,12 @@ async function checkAssetFile({ root, baseDirectory, asset, location, errors }) 
   }
   const digest = await sha256(absoluteFile)
   if (digest !== asset.sha256) errors.push(`${location}: SHA-256 与文件内容不符`)
-  if (asset.publish && !publishableRights.has(asset.rights.status)) {
-    errors.push(`${location}: 发布素材前需确认许可证或取得授权`)
+  checkRightsBasis(asset.rights, location, errors)
+  if (!publishableRights.has(asset.rights.status)) {
+    errors.push(`${location}: 素材文件进入仓库前需确认许可证或取得授权`)
+  }
+  if (!committablePrivacy.has(asset.privacy.status)) {
+    errors.push(`${location}: 素材文件进入仓库前需完成隐私复核和必要脱敏`)
   }
 }
 
@@ -277,8 +291,11 @@ export async function validateCatalog(catalog) {
   }
 
   if (validators.assets(sharedAssets)) {
-    for (const duplicate of findDuplicates(sharedAssets.assets.map((asset) => asset.id))) {
-      errors.push(`${path.join(root, 'ASSETS.yml')}: 共享素材 ID 重复: ${duplicate}`)
+    for (const duplicate of findDuplicates([
+      ...sharedAssets.assets.map((asset) => asset.id),
+      ...sharedAssets.candidates.map((candidate) => candidate.id),
+    ])) {
+      errors.push(`${path.join(root, 'ASSETS.yml')}: 共享素材或候选 ID 重复: ${duplicate}`)
     }
     for (const [index, asset] of sharedAssets.assets.entries()) {
       await checkAssetFile({
@@ -288,6 +305,25 @@ export async function validateCatalog(catalog) {
         location: `${path.join(root, 'ASSETS.yml')}/assets/${index}`,
         errors,
       })
+    }
+    for (const [index, candidate] of sharedAssets.candidates.entries()) {
+      const location = `${path.join(root, 'ASSETS.yml')}/candidates/${index}`
+      const exhibit = exhibitById.get(candidate.exhibit_id)
+      if (!exhibit) {
+        errors.push(`${location}/exhibit_id: 找不到展品 ${candidate.exhibit_id}`)
+      } else if (exhibit.assets.some((asset) => asset.id === candidate.id)) {
+        errors.push(`${location}/id: 候选与展品本地素材不能同时使用 ID ${candidate.id}`)
+      }
+      if (candidate.publish !== false) {
+        errors.push(`${location}/publish: 候选素材不得直接发布`)
+      }
+      checkRightsBasis(candidate.rights, location, errors)
+    }
+  } else {
+    for (const [index, candidate] of (sharedAssets.candidates ?? []).entries()) {
+      if (candidate.publish !== false) {
+        errors.push(`${path.join(root, 'ASSETS.yml')}/candidates/${index}/publish: 候选素材不得直接发布`)
+      }
     }
   }
 

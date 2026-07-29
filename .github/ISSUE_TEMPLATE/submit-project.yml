@@ -46,12 +46,12 @@ body:
   - type: textarea
     id: assets
     attributes:
-      label: 截图与授权
-      description: 如需提交图片，请说明来源、许可证或授权情况。不要上传真实论坛内容。
+      label: 素材来源与授权
+      description: 可填写公开宣传帖、商店页、README 截图或视频的原位置，并注明作者、许可证或授权情况。未确认再分发许可时请只贴来源链接，不要上传文件。
   - type: checkboxes
     id: privacy
     attributes:
       label: 隐私确认
       options:
-        - label: 我提交的内容不包含账号凭据、私信、IP 或未脱敏的论坛数据。
+        - label: 我提交的内容不包含账号凭据、私信、IP、会话标识或其他非公开资料；公开论坛内容已保留原位置和作者，并只展示作品所需的最小范围。
           required: true

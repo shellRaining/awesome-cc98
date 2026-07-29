@@ -1,2 +1,611 @@
 schema_version: 1
 assets: []
+candidates:
+  - id: cc98-app-flutter-hot-page
+    exhibit_id: cc98-app-flutter
+    role: screenshot
+    source_page_url: "https://github.com/Zhytou/CC98-APP/blob/b83b877df13aa54ac78be4d06fc8ebcd24fd7868/README.md#result"
+    asset_url: "https://raw.githubusercontent.com/Zhytou/CC98-APP/b83b877df13aa54ac78be4d06fc8ebcd24fd7868/res/img/%E7%83%AD%E9%97%A8.png"
+    media_type: image/png
+    creator: Zhytou
+    owner: Zhytou
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-APP 界面截图，Zhytou"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 公开展示的客户端截图，可能包含真实主题、用户名或头像，发布前需逐项检查并脱敏。
+    planned_use: [gallery, museum, archive]
+    notes: 项目没有明确许可证，取得作者许可并完成隐私检查后再下载。仓库还提供登录、新帖、版面和设置页截图。
+
+  - id: cc98-app-flutter-demo
+    exhibit_id: cc98-app-flutter
+    role: video
+    source_page_url: "https://github.com/Zhytou/CC98-APP/blob/b83b877df13aa54ac78be4d06fc8ebcd24fd7868/README.md#cc98-app"
+    asset_url: "https://raw.githubusercontent.com/Zhytou/CC98-APP/b83b877df13aa54ac78be4d06fc8ebcd24fd7868/res/cc98.gif"
+    media_type: image/gif
+    creator: Zhytou
+    owner: Zhytou
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-APP 操作演示，Zhytou"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 公开的操作演示可能带有真实论坛内容，发布前需逐帧复核。
+    planned_use: [museum, archive]
+    notes: 原始 GIF 约 12 MB。取得许可后应转为 MP4 或 WebM，并生成无敏感内容的 poster。
+
+  - id: cc98-cleaner-author-assets-request
+    exhibit_id: cc98-cleaner
+    role: promotional_page
+    source_page_url: "https://github.com/Aleph-000/cc98-cleaner"
+    asset_url: null
+    media_type: null
+    creator: Aleph-000
+    owner: Aleph-000
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: unknown
+      license: null
+      attribution: "CC98 Cleaner by Aleph-000"
+      permission_record: null
+    privacy:
+      status: unknown
+      notes: 仓库和 Release 没有公开图片，尚无可复核的画面内容。
+    planned_use: [gallery, museum]
+    notes: 不拆解 Release 中的扩展包。后续向作者索取项目图标，以及使用模拟评论制作的前后对比图。
+
+  - id: cc98-desktop-app-icon
+    exhibit_id: cc98-desktop
+    role: icon
+    source_page_url: "https://github.com/Ansherly/CC98-Desktop/blob/1136a2a3284ab9e0bc8175e4b7bd28c0443fda20/Assets/SquareLogo.targetsize-256.png"
+    asset_url: "https://raw.githubusercontent.com/Ansherly/CC98-Desktop/1136a2a3284ab9e0bc8175e4b7bd28c0443fda20/Assets/SquareLogo.targetsize-256.png"
+    media_type: image/png
+    creator: Ansherly
+    owner: "Ansherly，商店发布者 OrangePlanet"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98 Desktop 图标，Ansherly / OrangePlanet"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 应用图标不含帖子、用户名或头像，仍需检查品牌元素的使用范围。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库没有明确许可证，需由作者或商店发布者确认图标可在 Awesome CC98 中再分发。
+
+  - id: cc98-desktop-card-hero
+    exhibit_id: cc98-desktop
+    role: hero
+    source_page_url: "https://github.com/Ansherly/CC98-Desktop/blob/1136a2a3284ab9e0bc8175e4b7bd28c0443fda20/Assets/Card.jpg"
+    asset_url: "https://raw.githubusercontent.com/Ansherly/CC98-Desktop/1136a2a3284ab9e0bc8175e4b7bd28c0443fda20/Assets/Card.jpg"
+    media_type: image/jpeg
+    creator: Ansherly
+    owner: "Ansherly，商店发布者 OrangePlanet"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98 Desktop Card，Ansherly / OrangePlanet"
+      permission_record: null
+    privacy:
+      status: public_promotion
+      notes: 作者仓库公开的卡片图，需确认画面内容和水印。项目 README 明确限制将客户端内容截图上传外网。
+    planned_use: [gallery, museum]
+    notes: 仅登记原位置，不下载。取得许可时还要确认 Card.jpg 不属于 README 所限制的客户端内容截图。
+
+  - id: cc98-ionic-app-icon
+    exhibit_id: cc98-ionic
+    role: icon
+    source_page_url: "https://github.com/haoqunjiang/cc98-ionic/blob/6884c041b03a85f29771ed4db86fbc30acb12ca7/resources/icon.png"
+    asset_url: "https://raw.githubusercontent.com/haoqunjiang/cc98-ionic/6884c041b03a85f29771ed4db86fbc30acb12ca7/resources/icon.png"
+    media_type: image/png
+    creator: haoqunjiang
+    owner: haoqunjiang
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: BSD-3-Clause
+      attribution: "cc98-ionic icon by haoqunjiang"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 仓库内应用图标不含用户内容，发布前仍需复核 CC98 标识和 BSD 署名要求。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库声明 BSD-3-Clause。正式入库前需确认该许可证覆盖图标本身，并完成品牌检查。
+
+  - id: cc98-ionic-hot-topics-screenshot
+    exhibit_id: cc98-ionic
+    role: screenshot
+    source_page_url: "https://github.com/haoqunjiang/cc98-ionic/blob/6884c041b03a85f29771ed4db86fbc30acb12ca7/README.md#%E6%88%AA%E5%9B%BE"
+    asset_url: "https://ww3.sinaimg.cn/large/921c1cdagw1esyw0n62ftj20ku112afd.jpg"
+    media_type: image/jpeg
+    creator: haoqunjiang
+    owner: "haoqunjiang 上传，画面内内容作者待核实"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "cc98-ionic 热门话题截图，haoqunjiang"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 外链截图可能显示真实帖子、用户名和头像，不能直接按仓库许可证处理。
+    planned_use: [gallery, museum, archive]
+    notes: 先联系作者取得原图和许可，优先请作者提供使用模拟数据重制的截图。
+
+  - id: cc98-ios-app-icon
+    exhibit_id: cc98-ios
+    role: icon
+    source_page_url: "https://github.com/YuwenXiong/CC98-iOS/blob/f442976687add4f3766ae9dbb46ab6ca7e45dda5/CC98/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png"
+    asset_url: "https://raw.githubusercontent.com/YuwenXiong/CC98-iOS/f442976687add4f3766ae9dbb46ab6ca7e45dda5/CC98/Assets.xcassets/AppIcon.appiconset/Icon-60%403x.png"
+    media_type: image/png
+    creator: YuwenXiong
+    owner: YuwenXiong
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-iOS icon by YuwenXiong"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 应用图标不含论坛用户内容，仍需确认图标及品牌授权。
+    planned_use: [readme, gallery, museum]
+    notes: 项目没有明确许可证，不能仅因文件公开在 GitHub 上就复制到本仓库。
+
+  - id: cc98-ios-store-poster
+    exhibit_id: cc98-ios
+    role: poster
+    source_page_url: "https://github.com/YuwenXiong/CC98-iOS/blob/f442976687add4f3766ae9dbb46ab6ca7e45dda5/CC98/App%20Store%20Copy.png"
+    asset_url: "https://raw.githubusercontent.com/YuwenXiong/CC98-iOS/f442976687add4f3766ae9dbb46ab6ca7e45dda5/CC98/App%20Store%20Copy.png"
+    media_type: image/png
+    creator: YuwenXiong
+    owner: YuwenXiong
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-iOS App Store 宣传图，YuwenXiong"
+      permission_record: null
+    privacy:
+      status: public_promotion
+      notes: 作者仓库公开的商店宣传图，发布前需检查画面中的帖子、用户名、头像和商店标识。
+    planned_use: [gallery, museum, archive]
+    notes: 这张图比单独图标更适合作为历史展品海报，但需先取得作者许可并完成人物与论坛内容复核。
+
+  - id: cc98-live-better-icon
+    exhibit_id: cc98-live-better
+    role: icon
+    source_page_url: "https://github.com/YangShu233-Snow/cc98-live-better/blob/045e7a004d90c29b588a5d98482fb0f9eb4f4b80/public/icon/128.png"
+    asset_url: "https://raw.githubusercontent.com/YangShu233-Snow/cc98-live-better/045e7a004d90c29b588a5d98482fb0f9eb4f4b80/public/icon/128.png"
+    media_type: image/png
+    creator: YangShu233-Snow
+    owner: YangShu233-Snow
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: MIT
+      attribution: "CC98 Live Better icon by YangShu233-Snow"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 扩展图标不含论坛用户内容，仍需检查其中的 CC98 品牌元素。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库声明 MIT。正式入库前需确认图标由项目作者创作或已获授权。
+
+  - id: cc98-ocean-app-icon
+    exhibit_id: cc98-ocean
+    role: icon
+    source_page_url: "https://github.com/Ansherly/CC98-Ocean/blob/21621b30e5040221c3930a54c399014e8d61a910/web/icons/Icon-512.png"
+    asset_url: "https://raw.githubusercontent.com/Ansherly/CC98-Ocean/21621b30e5040221c3930a54c399014e8d61a910/web/icons/Icon-512.png"
+    media_type: image/png
+    creator: Ansherly
+    owner: Ansherly
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-Ocean icon by Ansherly"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 应用图标不含论坛用户内容，图形来源和品牌授权仍待确认。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库没有许可证，需确认图标是项目原创、模板素材还是 CC98 官方素材的衍生物。
+
+  - id: cc98-reborn-icon
+    exhibit_id: cc98-reborn
+    role: icon
+    source_page_url: "https://github.com/Coran-tech/cc98-reborn/blob/95275b84d03ea1daa8f39c2977d5e103ed1f424d/assets/icon128.png"
+    asset_url: "https://raw.githubusercontent.com/Coran-tech/cc98-reborn/95275b84d03ea1daa8f39c2977d5e103ed1f424d/assets/icon128.png"
+    media_type: image/png
+    creator: Coran-tech
+    owner: Coran-tech
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: MIT
+      attribution: "CC98 Reborn icon by Coran-tech"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 扩展图标不含论坛用户内容，仍需完成商标元素复核。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库声明 MIT。确认图标权利和品牌边界后，可以进入首批本地素材评审。
+
+  - id: cc98-u-app-icon
+    exhibit_id: cc98-u
+    role: icon
+    source_page_url: "https://github.com/Yutyrannus/CC98.u/blob/db2fcadb047a6c1ef4cab08ff9dbd788acf93501/resources/icon.png"
+    asset_url: "https://raw.githubusercontent.com/Yutyrannus/CC98.u/db2fcadb047a6c1ef4cab08ff9dbd788acf93501/resources/icon.png"
+    media_type: image/png
+    creator: Yutyrannus
+    owner: Yutyrannus
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: MIT
+      attribution: "CC98.u icon by Yutyrannus"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 仓库内应用图标不含论坛用户内容，仍需检查 CC98 标识。
+    planned_use: [readme, gallery, museum]
+    notes: 历史演示 GIF 的原站已经失效，因此先登记仓库内图标，不从缓存站寻找镜像。
+
+  - id: cc98-vscode-author-assets-request
+    exhibit_id: cc98-vscode
+    role: promotional_page
+    source_page_url: "https://github.com/amiongogo/cc98-vscode"
+    asset_url: null
+    media_type: null
+    creator: 季风
+    owner: amiongogo
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: unknown
+      license: MIT
+      attribution: "CC98 低调浏览，季风 / amiongogo"
+      permission_record: null
+    privacy:
+      status: unknown
+      notes: 仓库和 VSIX Release 没有公开图像文件，尚无画面可供隐私检查。
+    planned_use: [gallery, museum]
+    notes: 不拆解 VSIX。后续请作者提供使用模拟主题和用户数据制作的 VS Code 界面截图。
+
+  - id: cc98-web-rewrite-logo
+    exhibit_id: cc98-web-rewrite
+    role: icon
+    source_page_url: "https://github.com/mise42/cc98-web-rewrite/blob/1ac8d1565a07e5a73d3797c1adbce424bde1cc3f/public/static/images/logo.png"
+    asset_url: "https://raw.githubusercontent.com/mise42/cc98-web-rewrite/1ac8d1565a07e5a73d3797c1adbce424bde1cc3f/public/static/images/logo.png"
+    media_type: image/png
+    creator: "mise42 仓库，原始作者待核实"
+    owner: mise42
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "cc98-web-rewrite 仓库中的 CC98 Logo，mise42 收录"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 图像不含论坛用户内容，但很可能继承自官方 Forum，原始作者和品牌权利需追溯。
+    planned_use: [gallery, museum, archive]
+    notes: 仓库没有许可证，不能把这个 Logo 当作重写项目的独立原创素材。优先向作者索取项目专属视觉。
+
+  - id: cc98-wps-author-assets-request
+    exhibit_id: cc98-wps-table-disguise
+    role: promotional_page
+    source_page_url: "https://greasyfork.org/zh-CN/scripts/585813"
+    asset_url: null
+    media_type: null
+    creator: 季风
+    owner: amiongogo
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: unknown
+      license: MIT
+      attribution: "CC98 摸鱼模式，季风 / amiongogo"
+      permission_record: null
+    privacy:
+      status: unknown
+      notes: Greasy Fork 页面没有宣传图，尚无画面可供隐私检查。
+    planned_use: [gallery, museum]
+    notes: 后续请作者使用模拟数据制作 WPS 表格界面截图，并确认脚本名称和视觉元素的署名方式。
+
+  - id: cc98lite-ios-app-icon
+    exhibit_id: cc98lite-ios
+    role: icon
+    source_page_url: "https://github.com/lunarfire/CC98Lite/blob/9fcbab98ff73306a66414d2d259e0b7de5dfb2de/CC98Lite/Images.xcassets/AppIcon.appiconset/CC98_180.png"
+    asset_url: "https://raw.githubusercontent.com/lunarfire/CC98Lite/9fcbab98ff73306a66414d2d259e0b7de5dfb2de/CC98Lite/Images.xcassets/AppIcon.appiconset/CC98_180.png"
+    media_type: image/png
+    creator: Lunarfire
+    owner: Lunarfire
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: MIT
+      attribution: "CC98Lite icon by Lunarfire"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 应用图标不含论坛用户内容，仍需完成 CC98 标识检查。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库没有产品截图，图标是当前最稳定的候选。正式入库前确认 MIT 覆盖图标本身。
+
+  - id: lucent-snow-cli-tui
+    exhibit_id: lucent-snow-cc98-cli
+    role: screenshot
+    source_page_url: "https://github.com/Lucent-Snow/CC98-CLI/blob/457e90ff988a469e019eb50677bdff1bb89a918c/images/tui.jpg"
+    asset_url: "https://raw.githubusercontent.com/Lucent-Snow/CC98-CLI/457e90ff988a469e019eb50677bdff1bb89a918c/images/tui.jpg"
+    media_type: image/jpeg
+    creator: Lucent-Snow
+    owner: Lucent-Snow
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-CLI TUI screenshot by Lucent-Snow"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 公开截图很可能包含真实主题、用户名或帖子内容，不能直接镜像。
+    planned_use: [gallery, museum, archive]
+    notes: 即使仓库使用 MIT，也需单独处理画面中的论坛内容。优先请作者提供模拟数据截图。
+
+  - id: mycc98-android-app-icon
+    exhibit_id: mycc98-android
+    role: icon
+    source_page_url: "https://github.com/ZJU-CC98/MyCC98/blob/399dd9dba57f2e776a31e5155d19c5d332f62448/app/ic_launcher-web.png"
+    asset_url: "https://raw.githubusercontent.com/ZJU-CC98/MyCC98/399dd9dba57f2e776a31e5155d19c5d332f62448/app/ic_launcher-web.png"
+    media_type: image/png
+    creator: "DJ、zsy，图形原作者待核实"
+    owner: ZJU-CC98
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "MyCC98 icon，DJ / zsy / ZJU-CC98"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 应用图标不含用户内容，但 README 说明部分界面和吉祥物素材来自网络或雪球君。
+    planned_use: [readme, gallery, museum, archive]
+    notes: Apache-2.0 代码许可证不能单独证明吉祥物、Logo 或品牌图形可以再分发，需向维护者确认。
+
+  - id: mycc98-ios-app-icon
+    exhibit_id: mycc98-ios-jailbreak
+    role: icon
+    source_page_url: "https://github.com/biaobiaoqi/MyCC98/blob/51c16e2a823d18e6d8c169c7e06bbfa7d8545bd7/MyCC98/logo.png"
+    asset_url: "https://raw.githubusercontent.com/biaobiaoqi/MyCC98/51c16e2a823d18e6d8c169c7e06bbfa7d8545bd7/MyCC98/logo.png"
+    media_type: image/png
+    creator: biaobiaoqi
+    owner: biaobiaoqi
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: GPL-3.0
+      attribution: "MyCC98 for iPhone logo by biaobiaoqi"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 仓库内 Logo 不含论坛用户内容，仍需检查 CC98 品牌元素。
+    planned_use: [readme, gallery, museum, archive]
+    notes: 正式入库前确认 GPL-3.0 覆盖 Logo，并保留许可证及作者署名。
+
+  - id: mycc98-ios-readme-screenshot
+    exhibit_id: mycc98-ios-jailbreak
+    role: screenshot
+    source_page_url: "https://github.com/biaobiaoqi/MyCC98/blob/51c16e2a823d18e6d8c169c7e06bbfa7d8545bd7/README.md#screenshots-%E6%88%AA%E5%9B%BE"
+    asset_url: "https://i.imgur.com/aV5RvSw.png"
+    media_type: image/png
+    creator: biaobiaoqi
+    owner: "biaobiaoqi 上传，画面内内容作者待核实"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "MyCC98 for iPhone screenshot by biaobiaoqi"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 外链截图可能显示真实帖子、用户名和头像，需取得许可并完成脱敏。
+    planned_use: [gallery, museum, archive]
+    notes: README 共保留 12 张历史截图。先登记代表图，不把外部图床内容复制进仓库。
+
+  - id: mynewcc98-history-screenshot
+    exhibit_id: mynewcc98
+    role: screenshot
+    source_page_url: "https://github.com/6769/MyNewCC98/tree/f8f73cfcd433f6edaf12185108836fd5d0cf1361/doc/screenshot"
+    asset_url: "https://raw.githubusercontent.com/6769/MyNewCC98/f8f73cfcd433f6edaf12185108836fd5d0cf1361/doc/screenshot/screenshot_2018-1-20_15.57.20.png"
+    media_type: image/png
+    creator: "6769"
+    owner: "6769"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "MyNewCC98 screenshot by 6769"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: 截图目录公开保存了 2018 年客户端画面，可能包含真实帖子或用户信息。
+    planned_use: [gallery, museum, archive]
+    notes: 项目没有明确许可证。取得作者许可后，从 6 张截图中选择一张并做隐私复核。
+
+  - id: official-forum-logo
+    exhibit_id: official-forum
+    role: icon
+    source_page_url: "https://github.com/ZJU-CC98/Forum/blob/1ab3b51a717760243d4e6f6c853374193246518d/dist/static/images/logo.png"
+    asset_url: "https://raw.githubusercontent.com/ZJU-CC98/Forum/1ab3b51a717760243d4e6f6c853374193246518d/dist/static/images/logo.png"
+    media_type: image/png
+    creator: "ZJU-CC98，图形原作者待核实"
+    owner: ZJU-CC98
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98 Forum logo，ZJU-CC98"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 官方仓库中的 Logo 不含论坛用户内容，但属于品牌视觉，需要单独确认使用范围。
+    planned_use: [readme, gallery, museum, archive]
+    notes: Forum 代码使用 Apache-2.0，许可证不自动授予商标使用权，需由 CC98 运营管理团队确认。
+
+  - id: official-pwa-snowball-icon
+    exhibit_id: official-pwa
+    role: icon
+    source_page_url: "https://github.com/ZJU-CC98/CC98-PWA/blob/48a97c015072d5a257e3f9c2d5dcc7a7e4e31522/public/icons/snowball-144.png"
+    asset_url: "https://raw.githubusercontent.com/ZJU-CC98/CC98-PWA/48a97c015072d5a257e3f9c2d5dcc7a7e4e31522/public/icons/snowball-144.png"
+    media_type: image/png
+    creator: "ZJU-CC98，雪球形象原作者待核实"
+    owner: ZJU-CC98
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-PWA snowball icon，ZJU-CC98"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: PWA 图标不含论坛用户内容，雪球形象和品牌权利仍需单独核实。
+    planned_use: [readme, gallery, museum, archive]
+    notes: PWA 仓库采用 MIT，但图标和吉祥物可能有独立权利。确认后再下载并生成博物馆海报。
+
+  - id: react-native-cc98-logo
+    exhibit_id: react-native-cc98
+    role: icon
+    source_page_url: "https://github.com/Yutyrannus/react-native-CC98/blob/10b4490f03d95c55e2a1dac18fbb8827c2cec598/src/assets/logo.png"
+    asset_url: "https://raw.githubusercontent.com/Yutyrannus/react-native-CC98/10b4490f03d95c55e2a1dac18fbb8827c2cec598/src/assets/logo.png"
+    media_type: image/png
+    creator: Yutyrannus
+    owner: Yutyrannus
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98.r logo by Yutyrannus"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 仓库内 Logo 不含论坛用户内容，项目许可证和品牌来源均待确认。
+    planned_use: [readme, gallery, museum, archive]
+    notes: 仓库未发现界面截图，Logo 是当前唯一有项目辨识度的候选。
+
+  - id: shellraining-cc98-pwa-icon
+    exhibit_id: shellraining-cc98
+    role: icon
+    source_page_url: "https://github.com/shellRaining/cc98/blob/41985b3b76cac4ccca1416a9d7836e36d0f704ee/apps/website/public/pwa-512x512.png"
+    asset_url: "https://raw.githubusercontent.com/shellRaining/cc98/41985b3b76cac4ccca1416a9d7836e36d0f704ee/apps/website/public/pwa-512x512.png"
+    media_type: image/png
+    creator: "shellRaining 仓库，图形原作者待核实"
+    owner: shellRaining
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: unknown
+      license: MIT
+      attribution: "shellRaining/cc98 PWA icon，shellRaining"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: PWA 图标不含论坛用户内容，图形中的 CC98 品牌来源仍待确认。
+    planned_use: [readme, gallery, museum]
+    notes: 仓库采用 MIT，但不能据此推断 CC98 Logo 或商标已经授权。Hero 图应使用模拟数据另行制作。
+
+  - id: such98-app-icon
+    exhibit_id: such98
+    role: icon
+    source_page_url: "https://github.com/cruise1008/such98/blob/bdfdd4a7d11534b0c1524fd5d97df376f94e283d/such98/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    asset_url: "https://raw.githubusercontent.com/cruise1008/such98/bdfdd4a7d11534b0c1524fd5d97df376f94e283d/such98/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    media_type: image/png
+    creator: cruise1008
+    owner: cruise1008
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: licensed
+      license: GPL-2.0
+      attribution: "such98 icon by cruise1008"
+      permission_record: null
+    privacy:
+      status: clear
+      notes: 启动图标不含论坛用户内容，仍需检查 CC98 标识和许可证义务。
+    planned_use: [readme, gallery, museum, archive]
+    notes: 仓库未发现产品截图，启动图标是当前最稳定的候选。正式入库前确认图标权利。
+
+  - id: walavave-cli-tui
+    exhibit_id: walavave-cc98-cli
+    role: screenshot
+    source_page_url: "https://github.com/walavave/CC98-CLI/blob/089183ad4b1d91e671af9fbec6d27649fc44fa98/docs/images/tui.png"
+    asset_url: "https://raw.githubusercontent.com/walavave/CC98-CLI/089183ad4b1d91e671af9fbec6d27649fc44fa98/docs/images/tui.png"
+    media_type: image/png
+    creator: walavave
+    owner: walavave
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "CC98-CLI TUI screenshot by walavave"
+      permission_record: null
+    privacy:
+      status: needs_redaction
+      notes: README 公开截图可能包含真实主题、用户名或帖子内容，不能直接镜像。
+    planned_use: [gallery, museum, archive]
+    notes: 仓库还有 tui2.png。应请作者提供模拟数据截图，或对现有截图取得许可并完成内容复核。
+
+  - id: weic-jiuba-app-icon
+    exhibit_id: weic-jiuba
+    role: icon
+    source_page_url: "https://appgallery.huawei.com/apptest/8zUVLkyBGOu"
+    asset_url: "https://appimg-drcn.dbankcdn.com/application/icon144/phone/9a4c31563706438a9530500fc4a84a33.webp"
+    media_type: image/webp
+    creator: infvar
+    owner: "infvar，华为 AppTest 托管"
+    retrieved_at: "2026-07-29"
+    publish: false
+    rights:
+      status: permission_required
+      license: null
+      attribution: "维C酒吧应用图标，infvar"
+      permission_record: null
+    privacy:
+      status: public_promotion
+      notes: 作者公开发布的 AppTest 应用图标，不含帖子、用户名或头像。
+    planned_use: [readme, gallery, museum]
+    notes: 目前只稳定定位到应用图标。宣传帖中的截图需要登录查看，可能含真实论坛内容，暂不登记直链。
