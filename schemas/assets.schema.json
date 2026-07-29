@@ -56,6 +56,50 @@
         "unknown"
       ]
     },
+    "permissionRecord": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/url"
+        },
+        {
+          "type": "string",
+          "pattern": "^docs/permissions/[a-z0-9]+(?:-[a-z0-9]+)*\\.md$"
+        }
+      ]
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "name", "platform", "account_name", "account_id", "profile_url"],
+      "properties": {
+        "kind": {
+          "enum": ["person", "organization"]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "platform": {
+          "enum": ["github", "cc98"]
+        },
+        "account_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "account_id": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "profile_url": {
+          "$ref": "#/$defs/url"
+        }
+      }
+    },
     "privacy": {
       "type": "object",
       "additionalProperties": false,
@@ -90,7 +134,7 @@
           "type": ["string", "null"]
         },
         "permission_record": {
-          "type": ["string", "null"]
+          "$ref": "#/$defs/permissionRecord"
         }
       }
     },
@@ -99,9 +143,12 @@
       "additionalProperties": false,
       "required": [
         "id",
+        "role",
         "file",
         "media_type",
         "alt",
+        "related_exhibits",
+        "subject",
         "source_url",
         "retrieved_at",
         "publish",
@@ -113,6 +160,21 @@
         "id": {
           "$ref": "#/$defs/id"
         },
+        "role": {
+          "enum": [
+            "author_avatar",
+            "icon",
+            "hero",
+            "screenshot",
+            "poster",
+            "sprite",
+            "texture",
+            "tileset",
+            "prop",
+            "audio",
+            "video"
+          ]
+        },
         "file": {
           "type": "string",
           "pattern": "^assets/[A-Za-z0-9._/-]+$"
@@ -123,6 +185,23 @@
         "alt": {
           "type": "string",
           "minLength": 1
+        },
+        "related_exhibits": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "subject": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/subject"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "source_url": {
           "anyOf": [
@@ -151,7 +230,32 @@
         "privacy": {
           "$ref": "#/$defs/privacy"
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "author_avatar"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "media_type": {
+                "enum": ["image/png", "image/jpeg", "image/webp", "image/avif"]
+              },
+              "related_exhibits": {
+                "type": "array",
+                "minItems": 1
+              },
+              "subject": {
+                "$ref": "#/$defs/subject"
+              }
+            }
+          }
+        }
+      ]
     },
     "candidate": {
       "type": "object",
@@ -180,7 +284,18 @@
           "$ref": "#/$defs/id"
         },
         "role": {
-          "enum": ["icon", "hero", "screenshot", "screenshot_collection", "video", "poster", "sprite", "promotional_page"]
+          "enum": ["author_avatar", "icon", "hero", "screenshot", "screenshot_collection", "video", "poster", "sprite", "promotional_page"]
+        },
+        "related_exhibits": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "subject": {
+          "$ref": "#/$defs/subject"
         },
         "source_page_url": {
           "$ref": "#/$defs/url"
@@ -239,7 +354,7 @@
               "maxLength": 300
             },
             "permission_record": {
-              "type": ["string", "null"]
+              "$ref": "#/$defs/permissionRecord"
             }
           }
         },
@@ -259,7 +374,35 @@
           "minLength": 1,
           "maxLength": 600
         }
-      }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "author_avatar"
+              }
+            }
+          },
+          "then": {
+            "required": ["related_exhibits", "subject"],
+            "properties": {
+              "related_exhibits": {
+                "type": "array"
+              },
+              "subject": {
+                "$ref": "#/$defs/subject"
+              },
+              "asset_url": {
+                "$ref": "#/$defs/url"
+              },
+              "media_type": {
+                "enum": ["image/png", "image/jpeg", "image/webp", "image/avif"]
+              }
+            }
+          }
+        }
+      ]
     }
   }
 }

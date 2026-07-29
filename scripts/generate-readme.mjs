@@ -90,6 +90,35 @@ export async function buildReadme(catalog) {
   return `${intro.trim()}\n\n${sections}\n\n${footer.trim()}\n`
 }
 
+export function buildAssetsManifest(catalog) {
+  const sharedAssets = catalog.sharedAssets.assets
+    .filter((asset) => asset.publish === true)
+    .map((asset) => ({
+      ...asset,
+      key: `shared:${asset.id}`,
+      scope: { kind: 'shared' },
+    }))
+  const exhibitAssets = catalog.exhibits
+    .filter((exhibit) => exhibit.record.state === 'published')
+    .flatMap((exhibit) =>
+      exhibit.assets
+        .filter((asset) => asset.publish === true)
+        .map((asset) => ({
+          ...asset,
+          key: `exhibit:${exhibit.id}:${asset.id}`,
+          scope: { kind: 'exhibit', exhibit_id: exhibit.id },
+          file: path.posix.join('exhibits', exhibit.id, asset.file),
+        })),
+    )
+
+  return {
+    schema_version: 1,
+    assets: [...sharedAssets, ...exhibitAssets].toSorted((left, right) =>
+      left.key.localeCompare(right.key),
+    ),
+  }
+}
+
 async function main() {
   const checkOnly = process.argv.includes('--check')
   const { catalog, errors } = await loadAndValidate()
@@ -113,6 +142,7 @@ async function main() {
     null,
     2,
   )
+  const assetsJson = JSON.stringify(buildAssetsManifest(catalog), null, 2)
 
   if (checkOnly) {
     const current = await readFile(readmeFile, 'utf8').catch(() => '')
@@ -127,8 +157,11 @@ async function main() {
   await Promise.all([
     writeFile(readmeFile, readme),
     writeFile(path.join(generatedDirectory, 'catalog.json'), `${catalogJson}\n`),
+    writeFile(path.join(generatedDirectory, 'assets.json'), `${assetsJson}\n`),
   ])
-  console.log(`已生成 README.md 和 generated/catalog.json，共 ${catalog.exhibits.length} 个展品`)
+  console.log(
+    `已生成 README.md、generated/catalog.json 和 generated/assets.json，共 ${catalog.exhibits.length} 个展品、${catalog.sharedAssets.assets.length} 个共享素材`,
+  )
 }
 
 if (process.argv[1] === new URL(import.meta.url).pathname) {

@@ -402,6 +402,20 @@
       "format": "uri",
       "pattern": "^https://"
     },
+    "permissionRecord": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/url"
+        },
+        {
+          "type": "string",
+          "pattern": "^docs/permissions/[a-z0-9]+(?:-[a-z0-9]+)*\\.md$"
+        }
+      ]
+    },
     "sourceRefs": {
       "type": "array",
       "minItems": 1,
@@ -492,15 +506,7 @@
               ]
             },
             "permission_record": {
-              "anyOf": [
-                {
-                  "type": "string",
-                  "minLength": 1
-                },
-                {
-                  "type": "null"
-                }
-              ]
+              "$ref": "#/$defs/permissionRecord"
             }
           }
         },

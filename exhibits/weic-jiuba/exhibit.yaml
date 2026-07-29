@@ -2,7 +2,7 @@ schema_version: 1
 id: weic-jiuba
 record:
   state: published
-  revision: 1
+  revision: 2
   created_at: "2026-07-29"
   updated_at: "2026-07-29"
   last_verified_at: "2026-07-29"
@@ -32,7 +32,7 @@ lifecycle:
 authors:
   - name: infvar
     role: creator
-    url: null
+    url: https://cc98.shellraining.xyz/user/id/818074
     source_refs: [forum-install, forum-preview]
 features:
   - title: 使用原生 HarmonyOS 的沉浸式光感与玻璃效果
@@ -100,3 +100,4 @@ verification:
     - AppTest 页面与论坛宣传帖已核对，未在设备上完成安装测试。
     - AppTest 测试期到 2026-10-26，帖子称测试名额为 500 人，最低系统版本为 HarmonyOS 5.0.0.130。
     - 未发现公开源码仓库或许可证，需向作者确认后更新。
+    - CC98 公开用户 API 确认帖子作者 infvar 的用户 ID 为 818074。

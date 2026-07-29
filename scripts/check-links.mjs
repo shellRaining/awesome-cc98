@@ -55,16 +55,29 @@ if (errors.length > 0) {
   process.exit(1)
 }
 
+function publicPermissionUrl(rights) {
+  return rights.permission_record?.startsWith('https://') ? [rights.permission_record] : []
+}
+
 const urls = [
   ...new Set([
     ...catalog.exhibits.flatMap((exhibit) => [
       ...exhibit.links.map((link) => link.url),
       ...exhibit.sources.map((source) => source.url),
     ]),
-    ...catalog.sharedAssets.assets.flatMap((asset) => asset.source_url ?? []),
+    ...catalog.exhibits.flatMap((exhibit) =>
+      exhibit.assets.flatMap((asset) => publicPermissionUrl(asset.rights)),
+    ),
+    ...catalog.sharedAssets.assets.flatMap((asset) => [
+      ...(asset.source_url ? [asset.source_url] : []),
+      ...(asset.subject ? [asset.subject.profile_url] : []),
+      ...publicPermissionUrl(asset.rights),
+    ]),
     ...catalog.sharedAssets.candidates.flatMap((candidate) => [
       candidate.source_page_url,
       ...(candidate.asset_url ? [candidate.asset_url] : []),
+      ...(candidate.subject ? [candidate.subject.profile_url] : []),
+      ...publicPermissionUrl(candidate.rights),
     ]),
   ]),
 ]

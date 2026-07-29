@@ -5,13 +5,15 @@ import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
 
-import { buildReadme, formatPlatforms } from '../scripts/generate-readme.mjs'
+import { buildAssetsManifest, buildReadme, formatPlatforms } from '../scripts/generate-readme.mjs'
 import { loadAndValidate, readYaml, validateCatalog } from '../scripts/lib/catalog.mjs'
 
 test('当前目录通过语义校验', async () => {
   const { catalog, errors } = await loadAndValidate()
   assert.deepEqual(errors, [])
   assert.ok(catalog.exhibits.length >= 20)
+  assert.equal(catalog.sharedAssets.assets.length, 29)
+  assert.ok(catalog.sharedAssets.assets.every((asset) => asset.role === 'author_avatar'))
 })
 
 test('生成内容覆盖 README 集合中的全部展品', async () => {
@@ -160,6 +162,97 @@ test('资产候选不得直接发布', async () => {
     },
   })
   assert.ok(errors.some((error) => error.includes('候选素材不得直接发布')))
+})
+
+test('共享素材必须引用已有展品和对应作者', async () => {
+  const { catalog } = await loadAndValidate()
+  const original = catalog.sharedAssets.assets[0]
+  const missingExhibit = {
+    ...original,
+    related_exhibits: ['missing-exhibit'],
+  }
+  const missingErrors = await validateCatalog({
+    ...catalog,
+    sharedAssets: {
+      ...catalog.sharedAssets,
+      assets: [missingExhibit, ...catalog.sharedAssets.assets.slice(1)],
+    },
+  })
+  assert.ok(missingErrors.some((error) => error.includes('找不到展品 missing-exhibit')))
+
+  const wrongAuthor = {
+    ...original,
+    subject: { ...original.subject, name: 'missing-author' },
+  }
+  const authorErrors = await validateCatalog({
+    ...catalog,
+    sharedAssets: {
+      ...catalog.sharedAssets,
+      assets: [wrongAuthor, ...catalog.sharedAssets.assets.slice(1)],
+    },
+  })
+  assert.ok(authorErrors.some((error) => error.includes('不是展品') && error.includes('的作者')))
+})
+
+test('已授权素材必须引用存在的许可记录', async () => {
+  const { catalog } = await loadAndValidate()
+  const original = catalog.sharedAssets.assets[0]
+  const changed = {
+    ...original,
+    rights: {
+      ...original.rights,
+      permission_record: 'docs/permissions/missing-record.md',
+    },
+  }
+  const errors = await validateCatalog({
+    ...catalog,
+    sharedAssets: {
+      ...catalog.sharedAssets,
+      assets: [changed, ...catalog.sharedAssets.assets.slice(1)],
+    },
+  })
+  assert.ok(errors.some((error) => error.includes('找不到许可记录 docs/permissions/missing-record.md')))
+})
+
+test('运行时素材清单只包含可发布的本地文件', () => {
+  const publishable = { id: 'shared-visible', file: 'assets/visible.png', publish: true }
+  const hidden = { id: 'shared-hidden', file: 'assets/hidden.png', publish: false }
+  const exhibitVisible = { id: 'same-id', file: 'assets/exhibit.png', publish: true }
+  const exhibitHidden = { id: 'exhibit-hidden', file: 'assets/hidden.png', publish: false }
+  const draftVisible = { id: 'draft-visible', file: 'assets/draft.png', publish: true }
+  const manifest = buildAssetsManifest({
+    sharedAssets: {
+      assets: [hidden, publishable],
+      candidates: [{ id: 'candidate-only', publish: false }],
+    },
+    exhibits: [
+      {
+        id: 'published-exhibit',
+        record: { state: 'published' },
+        assets: [exhibitHidden, exhibitVisible],
+      },
+      {
+        id: 'draft-exhibit',
+        record: { state: 'draft' },
+        assets: [draftVisible],
+      },
+    ],
+  })
+
+  assert.equal(manifest.schema_version, 1)
+  assert.equal('candidates' in manifest, false)
+  assert.deepEqual(
+    manifest.assets.map((asset) => asset.key),
+    ['exhibit:published-exhibit:same-id', 'shared:shared-visible'],
+  )
+  assert.ok(manifest.assets.every((asset) => asset.publish === true))
+  assert.equal(
+    manifest.assets.find((asset) => asset.key.startsWith('exhibit:')).file,
+    'exhibits/published-exhibit/assets/exhibit.png',
+  )
+  assert.equal(manifest.assets.find((asset) => asset.key.startsWith('shared:')).file, 'assets/visible.png')
+  assert.equal(manifest.assets.some((asset) => asset.id === 'candidate-only'), false)
+  assert.equal(manifest.assets.some((asset) => asset.id === 'draft-visible'), false)
 })
 
 test('候选提升为本地素材时不能保留重复记录', async () => {

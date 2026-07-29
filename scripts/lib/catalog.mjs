@@ -126,12 +126,30 @@ async function sha256(file) {
   return createHash('sha256').update(contents).digest('hex')
 }
 
-function checkRightsBasis(rights, location, errors) {
+async function checkRightsBasis({ root, rights, location, errors }) {
   if (rights.status === 'licensed' && !rights.license) {
     errors.push(`${location}/rights: licensed 素材必须填写许可证`)
   }
   if (rights.status === 'permission_granted' && !rights.permission_record) {
     errors.push(`${location}/rights: permission_granted 素材必须填写许可记录`)
+  }
+  if (
+    rights.status === 'permission_granted' &&
+    rights.permission_record &&
+    !rights.permission_record.startsWith('https://')
+  ) {
+    const permissionsRoot = path.join(root, 'docs', 'permissions')
+    const permissionFile = path.resolve(root, rights.permission_record)
+    const relative = path.relative(permissionsRoot, permissionFile)
+    if (relative.startsWith('..') || path.isAbsolute(relative) || path.extname(permissionFile) !== '.md') {
+      errors.push(`${location}/rights/permission_record: 许可记录必须位于 docs/permissions/`)
+    } else {
+      try {
+        await access(permissionFile)
+      } catch {
+        errors.push(`${location}/rights/permission_record: 找不到许可记录 ${rights.permission_record}`)
+      }
+    }
   }
 }
 
@@ -150,7 +168,7 @@ async function checkAssetFile({ root, baseDirectory, asset, location, errors }) 
   }
   const digest = await sha256(absoluteFile)
   if (digest !== asset.sha256) errors.push(`${location}: SHA-256 与文件内容不符`)
-  checkRightsBasis(asset.rights, location, errors)
+  await checkRightsBasis({ root, rights: asset.rights, location, errors })
   if (!publishableRights.has(asset.rights.status)) {
     errors.push(`${location}: 素材文件进入仓库前需确认许可证或取得授权`)
   }
@@ -247,6 +265,23 @@ export async function validateCatalog(catalog) {
     errors.push(`展品 ID 重复: ${duplicate}`)
   }
   const exhibitById = new Map(exhibits.map((exhibit) => [exhibit.id, exhibit]))
+
+  const checkSharedAssetRelationships = (asset, location) => {
+    for (const exhibitId of asset.related_exhibits ?? []) {
+      const exhibit = exhibitById.get(exhibitId)
+      if (!exhibit) {
+        errors.push(`${location}/related_exhibits: 找不到展品 ${exhibitId}`)
+        continue
+      }
+      if (
+        asset.role === 'author_avatar' &&
+        !exhibit.authors.some((author) => author.name === asset.subject?.name)
+      ) {
+        errors.push(`${location}/subject: ${asset.subject?.name ?? '未知身份'} 不是展品 ${exhibitId} 的作者`)
+      }
+    }
+  }
+
   for (const exhibit of exhibits) {
     if (!validators.exhibit(publicExhibit(exhibit))) continue
     for (const relationship of exhibit.relationships) {
@@ -298,6 +333,7 @@ export async function validateCatalog(catalog) {
       errors.push(`${path.join(root, 'ASSETS.yml')}: 共享素材或候选 ID 重复: ${duplicate}`)
     }
     for (const [index, asset] of sharedAssets.assets.entries()) {
+      checkSharedAssetRelationships(asset, `${path.join(root, 'ASSETS.yml')}/assets/${index}`)
       await checkAssetFile({
         root,
         baseDirectory: root,
@@ -317,7 +353,11 @@ export async function validateCatalog(catalog) {
       if (candidate.publish !== false) {
         errors.push(`${location}/publish: 候选素材不得直接发布`)
       }
-      checkRightsBasis(candidate.rights, location, errors)
+      if (candidate.related_exhibits && !candidate.related_exhibits.includes(candidate.exhibit_id)) {
+        errors.push(`${location}/related_exhibits: 必须包含主展品 ${candidate.exhibit_id}`)
+      }
+      checkSharedAssetRelationships(candidate, location)
+      await checkRightsBasis({ root, rights: candidate.rights, location, errors })
     }
   } else {
     for (const [index, candidate] of (sharedAssets.candidates ?? []).entries()) {

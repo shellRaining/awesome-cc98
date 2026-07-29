@@ -1,5 +1,787 @@
 schema_version: 1
-assets: []
+assets:
+  - id: author-zhytou-github-avatar
+    role: author_avatar
+    file: assets/authors/github/zhytou.jpg
+    media_type: image/jpeg
+    alt: Zhytou 的 GitHub 公开头像
+    related_exhibits: [cc98-app-flutter]
+    subject:
+      kind: person
+      name: Zhytou
+      platform: github
+      account_name: Zhytou
+      account_id: "56868292"
+      profile_url: https://github.com/Zhytou
+    source_url: "https://avatars.githubusercontent.com/u/56868292?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: aec60496567e16c79a22d0b120eb1cebd58729171cfd1bbe6e06c361abb95279
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Zhytou（图像创作者未单独核验）"
+      attribution: "作者头像：Zhytou（GitHub @Zhytou）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-aleph-000-github-avatar
+    role: author_avatar
+    file: assets/authors/github/aleph-000.jpg
+    media_type: image/jpeg
+    alt: Aleph-000 的 GitHub 公开头像
+    related_exhibits: [cc98-cleaner]
+    subject:
+      kind: person
+      name: Aleph-000
+      platform: github
+      account_name: Aleph-000
+      account_id: "159417678"
+      profile_url: https://github.com/Aleph-000
+    source_url: "https://avatars.githubusercontent.com/u/159417678?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: e4149b049e7808e29d2719b510471c2fe44d77c1cc732190d0b7468555dd681c
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Aleph-000（图像创作者未单独核验）"
+      attribution: "作者头像：Aleph-000（GitHub @Aleph-000）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-ansherly-github-avatar
+    role: author_avatar
+    file: assets/authors/github/ansherly.jpg
+    media_type: image/jpeg
+    alt: Ansherly 的 GitHub 公开头像
+    related_exhibits: [cc98-desktop, cc98-ocean]
+    subject:
+      kind: person
+      name: Ansherly
+      platform: github
+      account_name: Ansherly
+      account_id: "209910442"
+      profile_url: https://github.com/Ansherly
+    source_url: "https://avatars.githubusercontent.com/u/209910442?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 05d09e9e6a2d601b5b9b304f12007504fc3c80fab3af01a5bf05cf353c434783
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Ansherly（图像创作者未单独核验）"
+      attribution: "作者头像：Ansherly（GitHub @Ansherly）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-haoqunjiang-github-avatar
+    role: author_avatar
+    file: assets/authors/github/haoqunjiang.jpg
+    media_type: image/jpeg
+    alt: haoqunjiang 的 GitHub 公开头像
+    related_exhibits: [cc98-ionic]
+    subject:
+      kind: person
+      name: haoqunjiang
+      platform: github
+      account_name: haoqunjiang
+      account_id: "3277634"
+      profile_url: https://github.com/haoqunjiang
+    source_url: "https://avatars.githubusercontent.com/u/3277634?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 140f6cd0f2c83a63f94090f1a42bd8dfe4b9155d6bafe8b0e76c9bb4205cdfb2
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 haoqunjiang（图像创作者未单独核验）"
+      attribution: "作者头像：haoqunjiang（GitHub @haoqunjiang）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-yuwenxiong-github-avatar
+    role: author_avatar
+    file: assets/authors/github/yuwenxiong.png
+    media_type: image/png
+    alt: YuwenXiong 的 GitHub 公开头像
+    related_exhibits: [cc98-ios]
+    subject:
+      kind: person
+      name: YuwenXiong
+      platform: github
+      account_name: YuwenXiong
+      account_id: "3659697"
+      profile_url: https://github.com/YuwenXiong
+    source_url: "https://avatars.githubusercontent.com/u/3659697?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: ccd58308621a1603006f53a25b2dac02368e8151354b8e48673ecd68da647569
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 YuwenXiong（图像创作者未单独核验）"
+      attribution: "作者头像：YuwenXiong（GitHub @YuwenXiong）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-yangshu233-snow-github-avatar
+    role: author_avatar
+    file: assets/authors/github/yangshu233-snow.jpg
+    media_type: image/jpeg
+    alt: YangShu233-Snow 的 GitHub 公开头像
+    related_exhibits: [cc98-live-better]
+    subject:
+      kind: person
+      name: YangShu233-Snow
+      platform: github
+      account_name: YangShu233-Snow
+      account_id: "186483838"
+      profile_url: https://github.com/YangShu233-Snow
+    source_url: "https://avatars.githubusercontent.com/u/186483838?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: e8798658d1a4d4870eb63a87f751860bbe4386371f1692d162529e509b7c6a40
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 YangShu233-Snow（图像创作者未单独核验）"
+      attribution: "作者头像：YangShu233-Snow（GitHub @YangShu233-Snow）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-coran-tech-github-avatar
+    role: author_avatar
+    file: assets/authors/github/coran-tech.jpg
+    media_type: image/jpeg
+    alt: Coran-tech 的 GitHub 公开头像
+    related_exhibits: [cc98-reborn]
+    subject:
+      kind: person
+      name: Coran-tech
+      platform: github
+      account_name: Coran-tech
+      account_id: "231697777"
+      profile_url: https://github.com/Coran-tech
+    source_url: "https://avatars.githubusercontent.com/u/231697777?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: abb18190b9501cb544a34c94b70c0031b0eaa67d5af6602ed5c945ea907b3013
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Coran-tech（图像创作者未单独核验）"
+      attribution: "作者头像：Coran-tech（GitHub @Coran-tech）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-yutyrannus-github-avatar
+    role: author_avatar
+    file: assets/authors/github/yutyrannus.png
+    media_type: image/png
+    alt: Yutyrannus 的 GitHub 公开头像
+    related_exhibits: [cc98-u, react-native-cc98]
+    subject:
+      kind: person
+      name: Yutyrannus
+      platform: github
+      account_name: Yutyrannus
+      account_id: "15867254"
+      profile_url: https://github.com/Yutyrannus
+    source_url: "https://avatars.githubusercontent.com/u/15867254?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 75c8a736310b4a88ecfc9a23537c45296b12175aa3a4945ff4974ebb982fed63
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Yutyrannus（图像创作者未单独核验）"
+      attribution: "作者头像：Yutyrannus（GitHub @Yutyrannus）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-jifeng-github-avatar
+    role: author_avatar
+    file: assets/authors/github/amiongogo.png
+    media_type: image/png
+    alt: 季风的 GitHub 公开头像
+    related_exhibits: [cc98-vscode, cc98-wps-table-disguise]
+    subject:
+      kind: person
+      name: 季风
+      platform: github
+      account_name: amiongogo
+      account_id: "179795272"
+      profile_url: https://github.com/amiongogo
+    source_url: "https://avatars.githubusercontent.com/u/179795272?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 5f23cf02f71e5c3d382854eb70194775261a5204dcf40578aebea8453878066f
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 amiongogo（图像创作者未单独核验）"
+      attribution: "作者头像：季风（GitHub @amiongogo）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-mise42-github-avatar
+    role: author_avatar
+    file: assets/authors/github/mise42.jpg
+    media_type: image/jpeg
+    alt: mise42 的 GitHub 公开头像
+    related_exhibits: [cc98-web-rewrite]
+    subject:
+      kind: person
+      name: mise42
+      platform: github
+      account_name: mise42
+      account_id: "19621890"
+      profile_url: https://github.com/mise42
+    source_url: "https://avatars.githubusercontent.com/u/19621890?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: b295414b420b135deabffe58a47c3bb206d0dc692b1123a464715266805cba8f
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 mise42（图像创作者未单独核验）"
+      attribution: "作者头像：mise42（GitHub @mise42）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-lunarfire-github-avatar
+    role: author_avatar
+    file: assets/authors/github/lunarfire.png
+    media_type: image/png
+    alt: Lunarfire 的 GitHub 公开头像
+    related_exhibits: [cc98lite-ios]
+    subject:
+      kind: person
+      name: Lunarfire
+      platform: github
+      account_name: lunarfire
+      account_id: "7106872"
+      profile_url: https://github.com/lunarfire
+    source_url: "https://avatars.githubusercontent.com/u/7106872?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 62e05ded482ba263e72942024c9b27bc2b79daa419138d0b21629044e2d69fe5
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 lunarfire（图像创作者未单独核验）"
+      attribution: "作者头像：Lunarfire（GitHub @lunarfire）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-lucent-snow-github-avatar
+    role: author_avatar
+    file: assets/authors/github/lucent-snow.jpg
+    media_type: image/jpeg
+    alt: Lucent-Snow 的 GitHub 公开头像
+    related_exhibits: [lucent-snow-cc98-cli]
+    subject:
+      kind: person
+      name: Lucent-Snow
+      platform: github
+      account_name: Lucent-Snow
+      account_id: "190742844"
+      profile_url: https://github.com/Lucent-Snow
+    source_url: "https://avatars.githubusercontent.com/u/190742844?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: f79f8f2ebb8407e69fbb0e2f6e332a70de6a196748c868c4b29c114037e29916
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 Lucent-Snow（图像创作者未单独核验）"
+      attribution: "作者头像：Lucent-Snow（GitHub @Lucent-Snow）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-dj-github-avatar
+    role: author_avatar
+    file: assets/authors/github/djj0809.jpg
+    media_type: image/jpeg
+    alt: DJ 的 GitHub 公开头像
+    related_exhibits: [mycc98-android]
+    subject:
+      kind: person
+      name: DJ
+      platform: github
+      account_name: djj0809
+      account_id: "1077604"
+      profile_url: https://github.com/djj0809
+    source_url: "https://avatars.githubusercontent.com/u/1077604?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: e7c5e0e32631d60db5e4828dcf610ff25d1b5825afde8742c74f64d3af337338
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 djj0809（图像创作者未单独核验）"
+      attribution: "作者头像：DJ（GitHub @djj0809）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-zsy-github-avatar
+    role: author_avatar
+    file: assets/authors/github/zsy056.jpg
+    media_type: image/jpeg
+    alt: zsy 的 GitHub 公开头像
+    related_exhibits: [mycc98-android]
+    subject:
+      kind: person
+      name: zsy
+      platform: github
+      account_name: zsy056
+      account_id: "1074382"
+      profile_url: https://github.com/zsy056
+    source_url: "https://avatars.githubusercontent.com/u/1074382?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: cd8d87dfbf7f4df27706fb74ba104b416b69b909fc71bdb9950982cf51ace32a
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 zsy056（图像创作者未单独核验）"
+      attribution: "作者头像：zsy（GitHub @zsy056）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-biaobiaoqi-github-avatar
+    role: author_avatar
+    file: assets/authors/github/biaobiaoqi.jpg
+    media_type: image/jpeg
+    alt: biaobiaoqi 的 GitHub 公开头像
+    related_exhibits: [mycc98-ios-jailbreak]
+    subject:
+      kind: person
+      name: biaobiaoqi
+      platform: github
+      account_name: biaobiaoqi
+      account_id: "1173012"
+      profile_url: https://github.com/biaobiaoqi
+    source_url: "https://avatars.githubusercontent.com/u/1173012?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 953f384f23f21e0ac80edbb128029a8a083e27061c5927f2b68791b563272197
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 biaobiaoqi（图像创作者未单独核验）"
+      attribution: "作者头像：biaobiaoqi（GitHub @biaobiaoqi）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-6769-github-avatar
+    role: author_avatar
+    file: assets/authors/github/6769.jpg
+    media_type: image/jpeg
+    alt: 6769 的 GitHub 公开头像
+    related_exhibits: [mynewcc98]
+    subject:
+      kind: person
+      name: "6769"
+      platform: github
+      account_name: "6769"
+      account_id: "7290836"
+      profile_url: https://github.com/6769
+    source_url: "https://avatars.githubusercontent.com/u/7290836?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: f41ab20885abc734ada986ab97c33c8c0f60668d3c8c8151e7f61acc97a31471
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 6769（图像创作者未单独核验）"
+      attribution: "作者头像：6769（GitHub @6769）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-zju-cc98-github-avatar
+    role: author_avatar
+    file: assets/authors/github/zju-cc98.png
+    media_type: image/png
+    alt: ZJU-CC98 的 GitHub 组织头像
+    related_exhibits: [official-forum, official-pwa]
+    subject:
+      kind: organization
+      name: ZJU-CC98
+      platform: github
+      account_name: ZJU-CC98
+      account_id: "25788603"
+      profile_url: https://github.com/ZJU-CC98
+    source_url: "https://avatars.githubusercontent.com/u/25788603?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 0fbc0b6a875754fcf51f996ae51796c57731040623049cc36f5184fe4f4f97d5
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开组织 ZJU-CC98（图像创作者未单独核验）"
+      attribution: "组织头像：ZJU-CC98（GitHub @ZJU-CC98）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-shellraining-github-avatar
+    role: author_avatar
+    file: assets/authors/github/shellraining.png
+    media_type: image/png
+    alt: shellRaining 的 GitHub 公开头像
+    related_exhibits: [shellraining-cc98]
+    subject:
+      kind: person
+      name: shellRaining
+      platform: github
+      account_name: shellRaining
+      account_id: "111564053"
+      profile_url: https://github.com/shellRaining
+    source_url: "https://avatars.githubusercontent.com/u/111564053?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 244c0cf69132809b1b5a0566763a16302f82a1be092019644743ab93e7ca131c
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 shellRaining（图像创作者未单独核验）"
+      attribution: "作者头像：shellRaining（GitHub @shellRaining）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-cruise1008-github-avatar
+    role: author_avatar
+    file: assets/authors/github/cruise1008.jpg
+    media_type: image/jpeg
+    alt: cruise1008 的 GitHub 公开头像
+    related_exhibits: [such98]
+    subject:
+      kind: person
+      name: cruise1008
+      platform: github
+      account_name: cruise1008
+      account_id: "8612399"
+      profile_url: https://github.com/cruise1008
+    source_url: "https://avatars.githubusercontent.com/u/8612399?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 659efa5da8037a31c3e7dcbe53f3c38c91360d20847f85cddd4c42c16b61f53c
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 cruise1008（图像创作者未单独核验）"
+      attribution: "作者头像：cruise1008（GitHub @cruise1008）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-walavave-github-avatar
+    role: author_avatar
+    file: assets/authors/github/walavave.jpg
+    media_type: image/jpeg
+    alt: walavave 的 GitHub 公开头像
+    related_exhibits: [walavave-cc98-cli]
+    subject:
+      kind: person
+      name: walavave
+      platform: github
+      account_name: walavave
+      account_id: "282854909"
+      profile_url: https://github.com/walavave
+    source_url: "https://avatars.githubusercontent.com/u/282854909?v=4"
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 3819ca18bfe34257e9faeb98b5e90372898e3825dc13a334fef9ba6110b041fa
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 walavave（图像创作者未单独核验）"
+      attribution: "作者头像：walavave（GitHub @walavave）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-infvar-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/infvar.webp
+    media_type: image/webp
+    alt: infvar 的 CC98 公开头像
+    related_exhibits: [weic-jiuba]
+    subject:
+      kind: person
+      name: infvar
+      platform: cc98
+      account_name: infvar
+      account_id: "818074"
+      profile_url: https://cc98.shellraining.xyz/user/id/818074
+    source_url: https://file.cc98.org/v4-upload/p/2026/0723/gvt34hwc.webp
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 363d50b24bd9a00aab8e15cfb11a8d974a16fdea1a1f5be1076cbd63c035eba9
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 infvar（图像创作者未单独核验）"
+      attribution: "作者头像：infvar（CC98 @infvar）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-shellraining-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/shellrain.jpg
+    media_type: image/jpeg
+    alt: shellRaining 的 CC98 公开头像
+    related_exhibits: [shellraining-cc98]
+    subject:
+      kind: person
+      name: shellRaining
+      platform: cc98
+      account_name: shellRain
+      account_id: "713080"
+      profile_url: https://cc98.shellraining.xyz/user/id/713080
+    source_url: https://file.cc98.org/v2-upload/portrait/nl3lvbyn.jpg
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 954986bf66be5950758c6d8147fb7c8945117a9ce95683a2cfeb571bf4597d8b
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 shellRain（图像创作者未单独核验）"
+      attribution: "作者头像：shellRaining（CC98 @shellRain）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-jifeng-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/jifeng.webp
+    media_type: image/webp
+    alt: 季风的 CC98 公开头像
+    related_exhibits: [cc98-vscode, cc98-wps-table-disguise]
+    subject:
+      kind: person
+      name: 季风
+      platform: cc98
+      account_name: 季风
+      account_id: "736188"
+      profile_url: https://cc98.shellraining.xyz/user/id/736188
+    source_url: https://file.cc98.org/v2-upload/portrait/wktwazcr.webp
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 9e521af24c25456b1f4543b170a1eb2741f1d7fc8b2f244389a08ad6601864ce
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 季风（图像创作者未单独核验）"
+      attribution: "作者头像：季风（CC98 @季风）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-zsy-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/zsy.png
+    media_type: image/png
+    alt: zsy 的 CC98 公开头像
+    related_exhibits: [mycc98-android]
+    subject:
+      kind: person
+      name: zsy
+      platform: cc98
+      account_name: zsy
+      account_id: "308302"
+      profile_url: https://cc98.shellraining.xyz/user/id/308302
+    source_url: https://file.cc98.org/uploadfile/2011/10/22/22103832726.png
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 7ab724ff23472bd5cf98676e7ca5d95095cf861eb3d15fac3d13a711dba4306f
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 zsy（图像创作者未单独核验）"
+      attribution: "作者头像：zsy（CC98 @zsy）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-dj-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/dj.png
+    media_type: image/png
+    alt: DJ 的 CC98 公开头像
+    related_exhibits: [mycc98-android]
+    subject:
+      kind: person
+      name: DJ
+      platform: cc98
+      account_name: DJ
+      account_id: "357187"
+      profile_url: https://cc98.shellraining.xyz/user/id/357187
+    source_url: https://file.cc98.org/uploadfile/2013/12/12/12495282458.png
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: 43ed5847290ad0f29f18fdc69851d1bb11fe71b074aed0441fdbe47fcf9a069f
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 DJ（图像创作者未单独核验）"
+      attribution: "作者头像：DJ（CC98 @DJ）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-lunarfire-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/lunarfire-default.png
+    media_type: image/png
+    alt: Lunarfire 当前使用的 CC98 默认头像
+    related_exhibits: [cc98lite-ios]
+    subject:
+      kind: person
+      name: Lunarfire
+      platform: cc98
+      account_name: lunarfire
+      account_id: "527791"
+      profile_url: https://cc98.shellraining.xyz/user/id/527791
+    source_url: https://www.cc98.org/static/images/default_avatar_boy.png
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: d5d50fda8baefb21c0fdb31ec259106e4662ca8c261d262cd46bb2a903831f63
+    rights:
+      status: permission_granted
+      license: null
+      creator: "CC98 默认头像（账号 lunarfire 当前使用）"
+      attribution: "作者账号：Lunarfire（CC98 @lunarfire）；图像为 CC98 默认头像"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 账号当前使用 CC98 默认头像；经确认可用于作者身份展示并署名，文件保持原样。
+
+  - id: author-yutyrannus-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/yutyrannus-default.png
+    media_type: image/png
+    alt: Yutyrannus 当前使用的 CC98 默认头像
+    related_exhibits: [cc98-u, react-native-cc98]
+    subject:
+      kind: person
+      name: Yutyrannus
+      platform: cc98
+      account_name: Yutyrannus
+      account_id: "551739"
+      profile_url: https://cc98.shellraining.xyz/user/id/551739
+    source_url: https://www.cc98.org/static/images/default_avatar_boy.png
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: d5d50fda8baefb21c0fdb31ec259106e4662ca8c261d262cd46bb2a903831f63
+    rights:
+      status: permission_granted
+      license: null
+      creator: "CC98 默认头像（账号 Yutyrannus 当前使用）"
+      attribution: "作者账号：Yutyrannus（CC98 @Yutyrannus）；图像为 CC98 默认头像"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 账号当前使用 CC98 默认头像；经确认可用于作者身份展示并署名，文件保持原样。
+
+  - id: author-zhytou-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/zhytou.webp
+    media_type: image/webp
+    alt: Zhytou 的 CC98 公开头像
+    related_exhibits: [cc98-app-flutter]
+    subject:
+      kind: person
+      name: Zhytou
+      platform: cc98
+      account_name: ZHYtou
+      account_id: "600560"
+      profile_url: https://cc98.shellraining.xyz/user/id/600560
+    source_url: https://file.cc98.org/v4-upload/p/2024/1120/600560.webp
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: b0d91b2c44c2ac46e0c1c18c74ef5227152eeb12dc27acd3395d0d4881f245fc
+    rights:
+      status: permission_granted
+      license: null
+      creator: "公开账号 ZHYtou（图像创作者未单独核验）"
+      attribution: "作者头像：Zhytou（CC98 @ZHYtou）"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 经确认可用于作者身份展示并署名；文件保持下载时的原始内容。
+
+  - id: author-walavave-cc98-avatar
+    role: author_avatar
+    file: assets/authors/cc98/walavave-default.png
+    media_type: image/png
+    alt: walavave 当前使用的 CC98 默认头像
+    related_exhibits: [walavave-cc98-cli]
+    subject:
+      kind: person
+      name: walavave
+      platform: cc98
+      account_name: walavave
+      account_id: "817710"
+      profile_url: https://cc98.shellraining.xyz/user/id/817710
+    source_url: https://www.cc98.org/static/images/default_avatar_boy.png
+    retrieved_at: "2026-07-29"
+    publish: true
+    sha256: d5d50fda8baefb21c0fdb31ec259106e4662ca8c261d262cd46bb2a903831f63
+    rights:
+      status: permission_granted
+      license: null
+      creator: "CC98 默认头像（账号 walavave 当前使用）"
+      attribution: "作者账号：walavave（CC98 @walavave）；图像为 CC98 默认头像"
+      permission_record: docs/permissions/author-avatars-2026-07-29.md
+    privacy:
+      status: public_identity
+      notes: 账号当前使用 CC98 默认头像；经确认可用于作者身份展示并署名，文件保持原样。
 candidates:
   - id: cc98-app-flutter-hot-page
     exhibit_id: cc98-app-flutter

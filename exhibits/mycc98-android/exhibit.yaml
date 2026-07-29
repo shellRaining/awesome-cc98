@@ -3,7 +3,7 @@ id: mycc98-android
 
 record:
   state: published
-  revision: 1
+  revision: 2
   created_at: "2026-07-29"
   updated_at: "2026-07-29"
   last_verified_at: "2026-07-29"
@@ -38,11 +38,11 @@ lifecycle:
 authors:
   - name: DJ
     role: creator
-    url: null
+    url: https://github.com/djj0809
     source_refs: [repository]
   - name: zsy
     role: creator
-    url: null
+    url: https://github.com/zsy056
     source_refs: [repository]
 
 features:
@@ -97,3 +97,4 @@ verification:
   level: mixed
   notes:
     - 仓库 README、历史提交和 GitHub Releases 已核验；未在现代 Android 设备上运行旧版 APK。
+    - GitHub 贡献记录与提交作者信息确认 DJ 对应 djj0809、zsy 对应 zsy056。
