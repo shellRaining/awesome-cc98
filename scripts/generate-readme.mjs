@@ -98,10 +98,14 @@ async function main() {
   const readme = await buildReadme(catalog)
   const readmeFile = path.join(projectRoot, 'README.md')
   const generatedDirectory = path.join(projectRoot, 'generated')
+  const catalogUpdatedAt = catalog.exhibits
+    .map((exhibit) => exhibit.record.updated_at)
+    .toSorted()
+    .at(-1)
   const catalogJson = JSON.stringify(
     {
       schema_version: 1,
-      generated_at: new Date().toISOString(),
+      catalog_updated_at: catalogUpdatedAt,
       exhibits: catalog.exhibits
         .filter((exhibit) => exhibit.record.state === 'published')
         .map(publicExhibit),
