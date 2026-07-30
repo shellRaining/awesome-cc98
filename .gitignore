@@ -2,3 +2,8 @@ node_modules/
 generated/
 .DS_Store
 *.log
+/.obsidian
+apps/museum/dist/
+apps/museum/public/data/
+apps/museum/public/assets/
+apps/museum/public/exhibits/

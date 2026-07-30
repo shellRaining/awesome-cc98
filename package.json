@@ -5,12 +5,17 @@
   "type": "module",
   "description": "A verified catalog and digital museum of CC98 clients.",
   "scripts": {
-    "validate": "node scripts/validate.mjs",
-    "generate": "node scripts/generate-readme.mjs",
-    "generate:check": "node scripts/generate-readme.mjs --check",
+    "validate": "node scripts/validate.mjs && node scripts/generate-scenes.mjs --check",
+    "generate": "node scripts/generate-readme.mjs && node scripts/generate-scenes.mjs",
+    "generate:check": "node scripts/generate-readme.mjs --check && node scripts/generate-scenes.mjs --check",
     "check:links": "node scripts/check-links.mjs",
-    "test": "node --test",
-    "check": "pnpm validate && pnpm generate:check && pnpm test"
+    "museum:prepare": "node scripts/prepare-museum.mjs",
+    "museum:dev": "pnpm generate && pnpm museum:prepare && pnpm --filter @awesome-cc98/museum dev",
+    "museum:build": "pnpm generate && pnpm museum:prepare && pnpm --filter @awesome-cc98/museum build",
+    "museum:test": "pnpm --filter @awesome-cc98/museum test",
+    "test:catalog": "node --test tests/*.test.mjs",
+    "test": "pnpm test:catalog && pnpm museum:test",
+    "check": "pnpm validate && pnpm generate:check && pnpm test && pnpm museum:build"
   },
   "engines": {
     "node": ">=22"

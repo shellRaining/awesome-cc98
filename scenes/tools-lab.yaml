@@ -1,0 +1,58 @@
+schema_version: 1
+id: tools-lab
+start: false
+title: 工具实验室
+theme: C
+width: 24
+height: 16
+tile_size: 32
+spawn: {x: 12, y: 7}
+boundaries:
+  - {id: north-wall, x: 0, y: 0, width: 24, height: 1}
+  - {id: south-west-wall, x: 0, y: 15, width: 11, height: 1}
+  - {id: south-east-wall, x: 13, y: 15, width: 11, height: 1}
+  - {id: west-north-wall, x: 0, y: 1, width: 1, height: 6}
+  - {id: west-south-wall, x: 0, y: 9, width: 1, height: 6}
+  - {id: east-wall, x: 23, y: 1, width: 1, height: 14}
+portals:
+  - id: to-contemporary
+    label: 返回当代客户端展厅
+    x: 0
+    y: 7
+    width: 1
+    height: 2
+    target_scene: contemporary
+    target_portal: to-tools
+    target_spawn: {x: 21, y: 8}
+  - id: to-archive
+    label: 前往历史档案馆
+    x: 11
+    y: 15
+    width: 2
+    height: 1
+    target_scene: archive
+    target_portal: to-tools
+    target_spawn: {x: 14, y: 2}
+exhibits:
+  - {exhibit_id: lucent-snow-cc98-cli, x: 5, y: 4, facing: down, display: kiosk, interaction: terminal}
+  - {exhibit_id: walavave-cc98-cli, x: 18, y: 4, facing: down, display: kiosk, interaction: terminal}
+  - {exhibit_id: cc98-vscode, x: 5, y: 11, facing: up, display: kiosk, interaction: code}
+  - {exhibit_id: cc98-wps-table-disguise, x: 18, y: 11, facing: up, display: kiosk, interaction: compare}
+collectibles:
+  - id: tools-memory-fragment
+    asset_id: museum-memory-shard
+    label: 工具实验室记忆碎片
+    kind: memory-fragment
+    x: 12
+    y: 10
+decorations:
+  - id: tools-demo-terminal
+    asset_id: museum-concept-c
+    kind: terminal
+    label: 客户端工具演示终端
+    interactive: true
+    x: 11
+    y: 2
+    width: 2
+    height: 2
+    blocking: true

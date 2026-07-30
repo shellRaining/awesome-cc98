@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awesome-cc98.local/schemas/scene.schema.json",
+  "title": "Awesome CC98 museum scene",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "start",
+    "title",
+    "theme",
+    "width",
+    "height",
+    "tile_size",
+    "spawn",
+    "boundaries",
+    "portals",
+    "exhibits",
+    "collectibles",
+    "decorations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "start": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "theme": {
+      "enum": ["A", "C", "AC"]
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 256
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 256
+    },
+    "tile_size": {
+      "type": "integer",
+      "minimum": 8,
+      "maximum": 128
+    },
+    "spawn": {
+      "$ref": "#/$defs/point"
+    },
+    "boundaries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/boundary"
+      }
+    },
+    "portals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/portal"
+      }
+    },
+    "exhibits": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exhibitPlacement"
+      }
+    },
+    "collectibles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/collectible"
+      }
+    },
+    "decorations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/decoration"
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "x", "y", "width", "height"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "portal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "x",
+        "y",
+        "width",
+        "height",
+        "target_scene",
+        "target_portal",
+        "target_spawn"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "target_scene": {
+          "$ref": "#/$defs/id"
+        },
+        "target_portal": {
+          "$ref": "#/$defs/id"
+        },
+        "target_spawn": {
+          "$ref": "#/$defs/point"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "requires_flag": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?::[a-z0-9]+(?:-[a-z0-9]+)*)+$"
+        }
+      }
+    },
+    "exhibitPlacement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exhibit_id", "x", "y", "facing", "display"],
+      "properties": {
+        "exhibit_id": {
+          "$ref": "#/$defs/id"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "facing": {
+          "enum": ["up", "down", "left", "right"]
+        },
+        "display": {
+          "enum": ["wall", "pedestal", "kiosk"]
+        },
+        "interaction": {
+          "enum": ["device", "interface", "compare", "terminal", "code", "timeline", "filter"]
+        }
+      }
+    },
+    "collectible": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "asset_id", "label", "kind", "x", "y"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "asset_id": {
+          "$ref": "#/$defs/id"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "kind": {
+          "$ref": "#/$defs/id"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "decoration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "asset_id",
+        "kind",
+        "label",
+        "interactive",
+        "x",
+        "y",
+        "width",
+        "height",
+        "blocking"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "asset_id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "enum": ["poster", "terminal"]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "interactive": {
+          "type": "boolean"
+        },
+        "x": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "y": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "blocking": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

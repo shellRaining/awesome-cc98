@@ -1,0 +1,76 @@
+schema_version: 1
+id: archive
+start: false
+title: 历史档案馆
+theme: A
+width: 28
+height: 20
+tile_size: 32
+spawn: {x: 14, y: 10}
+boundaries:
+  - {id: north-west-wall, x: 0, y: 0, width: 13, height: 1}
+  - {id: north-east-wall, x: 15, y: 0, width: 13, height: 1}
+  - {id: south-wall, x: 0, y: 19, width: 28, height: 1}
+  - {id: west-north-wall, x: 0, y: 1, width: 1, height: 8}
+  - {id: west-south-wall, x: 0, y: 11, width: 1, height: 8}
+  - {id: east-north-wall, x: 27, y: 1, width: 1, height: 8}
+  - {id: east-south-wall, x: 27, y: 11, width: 1, height: 8}
+portals:
+  - id: to-official
+    label: 返回官方参考展厅
+    x: 0
+    y: 9
+    width: 1
+    height: 2
+    target_scene: official
+    target_portal: to-archive
+    target_spawn: {x: 21, y: 8}
+  - id: to-tools
+    label: 返回工具实验室
+    x: 13
+    y: 0
+    width: 2
+    height: 1
+    target_scene: tools-lab
+    target_portal: to-archive
+    target_spawn: {x: 12, y: 13}
+  - id: to-memory-vault
+    label: 开启记忆密库
+    hidden: true
+    requires_flag: collection:complete
+    x: 27
+    y: 9
+    width: 1
+    height: 2
+    target_scene: memory-vault
+    target_portal: to-archive
+    target_spawn: {x: 2, y: 7}
+exhibits:
+  - {exhibit_id: mycc98-android, x: 3, y: 5, facing: down, display: pedestal, interaction: timeline}
+  - {exhibit_id: cc98lite-ios, x: 8, y: 5, facing: down, display: pedestal, interaction: compare}
+  - {exhibit_id: mycc98-ios-jailbreak, x: 13, y: 5, facing: down, display: pedestal}
+  - {exhibit_id: cc98-u, x: 18, y: 5, facing: down, display: pedestal}
+  - {exhibit_id: cc98-ios, x: 23, y: 5, facing: down, display: pedestal}
+  - {exhibit_id: cc98-ionic, x: 3, y: 14, facing: up, display: pedestal}
+  - {exhibit_id: mynewcc98, x: 8, y: 14, facing: up, display: pedestal}
+  - {exhibit_id: cc98-app-flutter, x: 13, y: 14, facing: up, display: pedestal}
+  - {exhibit_id: react-native-cc98, x: 18, y: 14, facing: up, display: pedestal}
+  - {exhibit_id: such98, x: 23, y: 14, facing: up, display: pedestal}
+collectibles:
+  - id: archive-memory-fragment
+    asset_id: museum-memory-shard
+    label: 历史档案记忆碎片
+    kind: memory-fragment
+    x: 14
+    y: 12
+decorations:
+  - id: archive-concept-board
+    asset_id: museum-concept-a
+    kind: poster
+    label: 温暖怀旧风格策展概念图
+    interactive: false
+    x: 11
+    y: 1
+    width: 6
+    height: 2
+    blocking: false

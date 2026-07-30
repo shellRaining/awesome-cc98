@@ -17,18 +17,242 @@ import {
 } from '../scripts/generate-readme.mjs'
 import { loadAndValidate, readYaml, validateCatalog } from '../scripts/lib/catalog.mjs'
 
+function fixtureRights() {
+  return {
+    status: 'self_created',
+    license: null,
+    creator: '测试作者',
+    attribution: '测试作者',
+    permission_record: null,
+  }
+}
+
+function fixturePrivacy() {
+  return {
+    status: 'clear',
+    notes: '测试素材不包含论坛内容或个人信息',
+  }
+}
+
+function fixtureSharedAsset({ id, file, contents }) {
+  return {
+    id,
+    role: 'texture',
+    file,
+    media_type: 'image/png',
+    alt: '测试共享素材',
+    related_exhibits: [],
+    subject: null,
+    source_url: null,
+    retrieved_at: '2026-07-30',
+    publish: true,
+    sha256: createHash('sha256').update(contents).digest('hex'),
+    rights: fixtureRights(),
+    privacy: fixturePrivacy(),
+  }
+}
+
+function fixtureExhibitAsset({ id, file, contents, sourceRef }) {
+  return {
+    id,
+    role: 'screenshot',
+    file,
+    media_type: 'image/png',
+    alt: '测试展品素材',
+    source_ref: sourceRef,
+    publish: true,
+    sha256: createHash('sha256').update(contents).digest('hex'),
+    rights: fixtureRights(),
+    privacy: fixturePrivacy(),
+  }
+}
+
 test('当前目录通过语义校验', async () => {
   const { catalog, errors } = await loadAndValidate()
   assert.deepEqual(errors, [])
   assert.ok(catalog.exhibits.length >= 20)
-  assert.equal(catalog.sharedAssets.assets.length, 29)
-  assert.ok(catalog.sharedAssets.assets.every((asset) => asset.role === 'author_avatar'))
+  assert.equal(catalog.sharedAssets.assets.filter((asset) => asset.role === 'author_avatar').length, 29)
+  assert.deepEqual(
+    new Set(catalog.sharedAssets.assets.filter((asset) => asset.id.startsWith('museum-')).map((asset) => asset.role)),
+    new Set(['poster', 'sprite']),
+  )
   assert.equal(collectCreators(catalog).length, 21)
   const avatarIndex = buildAuthorAvatarIndex(catalog)
   for (const exhibit of catalog.exhibits.filter((item) => item.record.state === 'published')) {
     for (const author of exhibit.authors) {
       assert.ok(resolveAuthorAvatars(avatarIndex, exhibit.id, author.name).length > 0)
     }
+  }
+})
+
+test('已登记素材通过目录清单检查并忽略系统文件', async () => {
+  const { catalog } = await loadAndValidate()
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'awesome-cc98-inventory-'))
+  try {
+    const sharedContents = Buffer.from('registered shared asset')
+    const exhibitContents = Buffer.from('registered exhibit asset')
+    const rootAssetsDirectory = path.join(temporaryRoot, 'assets')
+    const original = catalog.exhibits[0]
+    const exhibitDirectory = path.join(temporaryRoot, 'exhibits', original.id)
+    const exhibitAssetsDirectory = path.join(exhibitDirectory, 'assets')
+    await Promise.all([
+      mkdir(rootAssetsDirectory, { recursive: true }),
+      mkdir(exhibitAssetsDirectory, { recursive: true }),
+    ])
+    await Promise.all([
+      writeFile(path.join(rootAssetsDirectory, 'registered.png'), sharedContents),
+      writeFile(path.join(rootAssetsDirectory, '.DS_Store'), Buffer.from('system metadata')),
+      writeFile(path.join(exhibitAssetsDirectory, 'registered.png'), exhibitContents),
+      writeFile(path.join(exhibitAssetsDirectory, 'Thumbs.db'), Buffer.from('system metadata')),
+    ])
+
+    const changedExhibit = {
+      ...original,
+      __file: path.join(exhibitDirectory, 'exhibit.yaml'),
+      __directory: exhibitDirectory,
+      assets: [
+        fixtureExhibitAsset({
+          id: 'registered-exhibit-asset',
+          file: 'assets/registered.png',
+          contents: exhibitContents,
+          sourceRef: original.sources[0].id,
+        }),
+      ],
+    }
+    const errors = await validateCatalog({
+      ...catalog,
+      root: temporaryRoot,
+      exhibits: [changedExhibit, ...catalog.exhibits.slice(1)],
+      sharedAssets: {
+        schema_version: 1,
+        assets: [
+          fixtureSharedAsset({
+            id: 'registered-shared-asset',
+            file: 'assets/registered.png',
+            contents: sharedContents,
+          }),
+        ],
+        candidates: [],
+      },
+    })
+    assert.deepEqual(errors, [])
+  } finally {
+    await rm(temporaryRoot, { recursive: true, force: true })
+  }
+})
+
+test('孤立的共享与展品素材文件会被拒绝', async () => {
+  const { catalog } = await loadAndValidate()
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'awesome-cc98-orphan-'))
+  try {
+    const rootAssetsDirectory = path.join(temporaryRoot, 'assets')
+    const original = catalog.exhibits[0]
+    const exhibitDirectory = path.join(temporaryRoot, 'exhibits', original.id)
+    const exhibitAssetsDirectory = path.join(exhibitDirectory, 'assets')
+    await Promise.all([
+      mkdir(rootAssetsDirectory, { recursive: true }),
+      mkdir(exhibitAssetsDirectory, { recursive: true }),
+    ])
+    await Promise.all([
+      writeFile(path.join(rootAssetsDirectory, 'orphan-shared.png'), Buffer.from('orphan shared')),
+      writeFile(path.join(exhibitAssetsDirectory, 'orphan-exhibit.png'), Buffer.from('orphan exhibit')),
+    ])
+
+    const changedExhibit = {
+      ...original,
+      __file: path.join(exhibitDirectory, 'exhibit.yaml'),
+      __directory: exhibitDirectory,
+      assets: [],
+    }
+    const errors = await validateCatalog({
+      ...catalog,
+      root: temporaryRoot,
+      exhibits: [changedExhibit, ...catalog.exhibits.slice(1)],
+      sharedAssets: { schema_version: 1, assets: [], candidates: [] },
+    })
+    assert.ok(errors.some((error) => error.includes('未登记素材文件 assets/orphan-shared.png')))
+    assert.ok(
+      errors.some((error) =>
+        error.includes(`未登记素材文件 exhibits/${original.id}/assets/orphan-exhibit.png`),
+      ),
+    )
+  } finally {
+    await rm(temporaryRoot, { recursive: true, force: true })
+  }
+})
+
+test('登记但不存在的共享与展品素材文件会被拒绝', async () => {
+  const { catalog } = await loadAndValidate()
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'awesome-cc98-missing-'))
+  try {
+    const original = catalog.exhibits[0]
+    const exhibitDirectory = path.join(temporaryRoot, 'exhibits', original.id)
+    await mkdir(exhibitDirectory, { recursive: true })
+    const missingContents = Buffer.from('missing asset')
+    const changedExhibit = {
+      ...original,
+      __file: path.join(exhibitDirectory, 'exhibit.yaml'),
+      __directory: exhibitDirectory,
+      assets: [
+        fixtureExhibitAsset({
+          id: 'missing-exhibit-asset',
+          file: 'assets/missing-exhibit.png',
+          contents: missingContents,
+          sourceRef: original.sources[0].id,
+        }),
+      ],
+    }
+    const errors = await validateCatalog({
+      ...catalog,
+      root: temporaryRoot,
+      exhibits: [changedExhibit, ...catalog.exhibits.slice(1)],
+      sharedAssets: {
+        schema_version: 1,
+        assets: [
+          fixtureSharedAsset({
+            id: 'missing-shared-asset',
+            file: 'assets/missing-shared.png',
+            contents: missingContents,
+          }),
+        ],
+        candidates: [],
+      },
+    })
+    assert.ok(errors.some((error) => error.includes('找不到素材文件 assets/missing-shared.png')))
+    assert.ok(
+      errors.some((error) =>
+        error.includes(`找不到素材文件 exhibits/${original.id}/assets/missing-exhibit.png`),
+      ),
+    )
+  } finally {
+    await rm(temporaryRoot, { recursive: true, force: true })
+  }
+})
+
+test('登记路径不能越出 assets 目录', async () => {
+  const { catalog } = await loadAndValidate()
+  const temporaryRoot = await mkdtemp(path.join(os.tmpdir(), 'awesome-cc98-path-'))
+  try {
+    const contents = Buffer.from('outside asset')
+    await writeFile(path.join(temporaryRoot, 'outside.png'), contents)
+    const errors = await validateCatalog({
+      ...catalog,
+      root: temporaryRoot,
+      sharedAssets: {
+        schema_version: 1,
+        assets: [
+          fixtureSharedAsset({
+            id: 'outside-shared-asset',
+            file: 'assets/../outside.png',
+            contents,
+          }),
+        ],
+        candidates: [],
+      },
+    })
+    assert.ok(errors.some((error) => error.includes('素材路径必须位于 assets/ 目录且不能越界')))
+  } finally {
+    await rm(temporaryRoot, { recursive: true, force: true })
   }
 })
 

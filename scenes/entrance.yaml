@@ -1,0 +1,56 @@
+schema_version: 1
+id: entrance
+start: true
+title: 博物馆入口
+theme: AC
+width: 24
+height: 16
+tile_size: 32
+spawn: {x: 12, y: 12}
+boundaries:
+  - {id: north-west-wall, x: 0, y: 0, width: 11, height: 1}
+  - {id: north-east-wall, x: 13, y: 0, width: 11, height: 1}
+  - {id: south-wall, x: 0, y: 15, width: 24, height: 1}
+  - {id: west-wall, x: 0, y: 1, width: 1, height: 14}
+  - {id: east-north-wall, x: 23, y: 1, width: 1, height: 6}
+  - {id: east-south-wall, x: 23, y: 9, width: 1, height: 6}
+portals:
+  - id: to-contemporary
+    label: 前往当代客户端展厅
+    x: 23
+    y: 7
+    width: 1
+    height: 2
+    target_scene: contemporary
+    target_portal: to-entrance
+    target_spawn: {x: 2, y: 8}
+  - id: to-official
+    label: 前往官方参考展厅
+    x: 11
+    y: 0
+    width: 2
+    height: 1
+    target_scene: official
+    target_portal: to-entrance
+    target_spawn: {x: 12, y: 13}
+exhibits:
+  - {exhibit_id: weic-jiuba, x: 6, y: 5, facing: down, display: kiosk, interaction: interface}
+  - {exhibit_id: shellraining-cc98, x: 17, y: 5, facing: down, display: kiosk, interaction: device}
+collectibles:
+  - id: entrance-memory-fragment
+    asset_id: museum-memory-shard
+    label: 序厅记忆碎片
+    kind: memory-fragment
+    x: 12
+    y: 9
+decorations:
+  - id: entrance-concept-board
+    asset_id: museum-concept-ac
+    kind: poster
+    label: 融合风格策展概念图
+    interactive: false
+    x: 9
+    y: 2
+    width: 6
+    height: 2
+    blocking: false

@@ -782,6 +782,90 @@ assets:
     privacy:
       status: public_identity
       notes: 账号当前使用 CC98 默认头像；经确认可用于作者身份展示并署名，文件保持原样。
+
+  - id: museum-memory-shard
+    role: sprite
+    file: assets/museum/memory-shard.webp
+    media_type: image/webp
+    alt: 琥珀色核心与蓝绿色珐琅组成的像素风记忆碎片
+    related_exhibits: []
+    subject: null
+    source_url: null
+    retrieved_at: "2026-07-30"
+    publish: true
+    sha256: 2818df2d41a6dcebbda1705e7ad62c6d73347fdcff983cda5bdc2486a1705c43
+    rights:
+      status: generated
+      license: CC0-1.0
+      creator: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      attribution: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      permission_record: docs/permissions/generated-museum-art-2026-07-30.md
+    privacy:
+      status: clear
+      notes: 纯虚构游戏道具；生成输入不包含帖子、账号、头像或其他用户数据。
+
+  - id: museum-concept-a
+    role: poster
+    file: assets/museum/concepts/style-a-warm-nostalgic.webp
+    media_type: image/webp
+    alt: 温暖怀旧风格的像素博物馆概念图
+    related_exhibits: []
+    subject: null
+    source_url: null
+    retrieved_at: "2026-07-30"
+    publish: true
+    sha256: 639332945680bc60680d80f0e02ba20b4216f0bed125442428d1e3316ab41ac9
+    rights:
+      status: generated
+      license: CC0-1.0
+      creator: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      attribution: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      permission_record: docs/permissions/generated-museum-art-2026-07-30.md
+    privacy:
+      status: clear
+      notes: 虚构空间概念图；生成输入不包含帖子、账号、头像或其他用户数据。
+
+  - id: museum-concept-c
+    role: poster
+    file: assets/museum/concepts/style-c-bright-campus.webp
+    media_type: image/webp
+    alt: 明亮校园风格的像素博物馆概念图
+    related_exhibits: []
+    subject: null
+    source_url: null
+    retrieved_at: "2026-07-30"
+    publish: true
+    sha256: fdb9b1266ac0760cc167d72e81455c0c3186a58ad5005bd4aa19cb730a4cd1a1
+    rights:
+      status: generated
+      license: CC0-1.0
+      creator: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      attribution: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      permission_record: docs/permissions/generated-museum-art-2026-07-30.md
+    privacy:
+      status: clear
+      notes: 虚构空间概念图；生成输入不包含帖子、账号、头像或其他用户数据。
+
+  - id: museum-concept-ac
+    role: poster
+    file: assets/museum/concepts/style-ac-warm-campus-v2.webp
+    media_type: image/webp
+    alt: 温暖怀旧与明亮校园融合风格的像素博物馆概念图
+    related_exhibits: []
+    subject: null
+    source_url: null
+    retrieved_at: "2026-07-30"
+    publish: true
+    sha256: a9c25afd2d2d8bf475bc15ee2b7980bb7cc57ade3167fe2711541eb709d7fffe
+    rights:
+      status: generated
+      license: CC0-1.0
+      creator: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      attribution: "Awesome CC98 策展美术（OpenAI gpt-image-2）"
+      permission_record: docs/permissions/generated-museum-art-2026-07-30.md
+    privacy:
+      status: clear
+      notes: 虚构空间概念图；生成输入不包含帖子、账号、头像或其他用户数据。
 candidates:
   - id: cc98-app-flutter-hot-page
     exhibit_id: cc98-app-flutter

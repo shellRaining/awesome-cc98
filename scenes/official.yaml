@@ -1,0 +1,56 @@
+schema_version: 1
+id: official
+start: false
+title: 官方参考展厅
+theme: AC
+width: 24
+height: 16
+tile_size: 32
+spawn: {x: 12, y: 7}
+boundaries:
+  - {id: north-wall, x: 0, y: 0, width: 24, height: 1}
+  - {id: south-west-wall, x: 0, y: 15, width: 11, height: 1}
+  - {id: south-east-wall, x: 13, y: 15, width: 11, height: 1}
+  - {id: west-wall, x: 0, y: 1, width: 1, height: 14}
+  - {id: east-north-wall, x: 23, y: 1, width: 1, height: 6}
+  - {id: east-south-wall, x: 23, y: 9, width: 1, height: 6}
+portals:
+  - id: to-entrance
+    label: 返回博物馆入口
+    x: 11
+    y: 15
+    width: 2
+    height: 1
+    target_scene: entrance
+    target_portal: to-official
+    target_spawn: {x: 12, y: 2}
+  - id: to-archive
+    label: 前往历史档案馆
+    x: 23
+    y: 7
+    width: 1
+    height: 2
+    target_scene: archive
+    target_portal: to-official
+    target_spawn: {x: 2, y: 10}
+exhibits:
+  - {exhibit_id: official-forum, x: 7, y: 7, facing: down, display: wall, interaction: timeline}
+  - {exhibit_id: official-pwa, x: 16, y: 7, facing: down, display: wall, interaction: interface}
+collectibles:
+  - id: official-memory-fragment
+    asset_id: museum-memory-shard
+    label: 官方展厅记忆碎片
+    kind: memory-fragment
+    x: 12
+    y: 11
+decorations:
+  - id: official-concept-board
+    asset_id: museum-concept-ac
+    kind: poster
+    label: 官方展厅融合风格概念图
+    interactive: false
+    x: 9
+    y: 2
+    width: 6
+    height: 2
+    blocking: false

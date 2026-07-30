@@ -1,0 +1,38 @@
+schema_version: 1
+id: memory-vault
+start: false
+title: 记忆密库
+theme: A
+width: 18
+height: 14
+tile_size: 32
+spawn: {x: 9, y: 10}
+boundaries:
+  - {id: north-wall, x: 0, y: 0, width: 18, height: 1}
+  - {id: south-wall, x: 0, y: 13, width: 18, height: 1}
+  - {id: west-north-wall, x: 0, y: 1, width: 1, height: 5}
+  - {id: west-south-wall, x: 0, y: 8, width: 1, height: 5}
+  - {id: east-wall, x: 17, y: 1, width: 1, height: 12}
+portals:
+  - id: to-archive
+    label: 返回历史档案馆
+    x: 0
+    y: 6
+    width: 1
+    height: 2
+    target_scene: archive
+    target_portal: to-memory-vault
+    target_spawn: {x: 26, y: 10}
+exhibits: []
+collectibles: []
+decorations:
+  - id: vault-memory-terminal
+    asset_id: museum-memory-shard
+    kind: terminal
+    label: 完整记忆回放终端
+    interactive: true
+    x: 8
+    y: 3
+    width: 2
+    height: 2
+    blocking: true

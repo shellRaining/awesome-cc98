@@ -1,0 +1,60 @@
+schema_version: 1
+id: contemporary
+start: false
+title: 当代客户端展厅
+theme: C
+width: 24
+height: 16
+tile_size: 32
+spawn: {x: 12, y: 13}
+boundaries:
+  - {id: north-wall, x: 0, y: 0, width: 24, height: 1}
+  - {id: south-wall, x: 0, y: 15, width: 24, height: 1}
+  - {id: west-north-wall, x: 0, y: 1, width: 1, height: 6}
+  - {id: west-south-wall, x: 0, y: 9, width: 1, height: 6}
+  - {id: east-north-wall, x: 23, y: 1, width: 1, height: 6}
+  - {id: east-south-wall, x: 23, y: 9, width: 1, height: 6}
+portals:
+  - id: to-entrance
+    label: 返回博物馆入口
+    x: 0
+    y: 7
+    width: 1
+    height: 2
+    target_scene: entrance
+    target_portal: to-contemporary
+    target_spawn: {x: 21, y: 8}
+  - id: to-tools
+    label: 前往工具实验室
+    x: 23
+    y: 7
+    width: 1
+    height: 2
+    target_scene: tools-lab
+    target_portal: to-contemporary
+    target_spawn: {x: 2, y: 8}
+exhibits:
+  - {exhibit_id: cc98-desktop, x: 4, y: 4, facing: down, display: pedestal, interaction: device}
+  - {exhibit_id: cc98-reborn, x: 12, y: 4, facing: down, display: pedestal, interaction: compare}
+  - {exhibit_id: cc98-ocean, x: 20, y: 4, facing: down, display: pedestal, interaction: interface}
+  - {exhibit_id: cc98-web-rewrite, x: 4, y: 11, facing: up, display: pedestal, interaction: timeline}
+  - {exhibit_id: cc98-live-better, x: 12, y: 11, facing: up, display: pedestal, interaction: filter}
+  - {exhibit_id: cc98-cleaner, x: 20, y: 11, facing: up, display: pedestal, interaction: filter}
+collectibles:
+  - id: contemporary-memory-fragment
+    asset_id: museum-memory-shard
+    label: 当代展厅记忆碎片
+    kind: memory-fragment
+    x: 12
+    y: 8
+decorations:
+  - id: contemporary-concept-board
+    asset_id: museum-concept-c
+    kind: poster
+    label: 明亮校园风格策展概念图
+    interactive: false
+    x: 9
+    y: 1
+    width: 6
+    height: 2
+    blocking: false

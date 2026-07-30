@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto'
-import { access, readdir, readFile } from 'node:fs/promises'
+import { access, lstat, readdir, readFile, realpath } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -11,6 +11,40 @@ export const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.u
 
 const publishableRights = new Set(['licensed', 'permission_granted', 'self_created', 'generated'])
 const committablePrivacy = new Set(['clear', 'public_promotion', 'public_identity'])
+const ignoredAssetEntryNames = new Set([
+  '.ds_store',
+  '.spotlight-v100',
+  '.trashes',
+  'desktop.ini',
+  'thumbs.db',
+])
+
+function pathIsWithin(directory, candidate) {
+  const relative = path.relative(directory, candidate)
+  return (
+    relative === '' ||
+    (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative))
+  )
+}
+
+function displayPath(root, file) {
+  const relative = path.relative(root, file)
+  return pathIsWithin(root, file) ? relative.split(path.sep).join('/') : file
+}
+
+function resolveAssetFile(baseDirectory, file) {
+  const assetsDirectory = path.resolve(baseDirectory, 'assets')
+  const absoluteFile = path.resolve(baseDirectory, file)
+  return {
+    assetsDirectory,
+    absoluteFile,
+    safe: pathIsWithin(assetsDirectory, absoluteFile),
+  }
+}
+
+function ignoredAssetEntry(name) {
+  return ignoredAssetEntryNames.has(name.toLowerCase()) || name.startsWith('._')
+}
 
 function walkYamlNode(node, file) {
   if (!node) return
@@ -154,18 +188,50 @@ async function checkRightsBasis({ root, rights, location, errors }) {
 }
 
 async function checkAssetFile({ root, baseDirectory, asset, location, errors }) {
-  const absoluteFile = path.resolve(baseDirectory, asset.file)
-  const relative = path.relative(baseDirectory, absoluteFile)
-  if (relative.startsWith('..') || path.isAbsolute(relative)) {
-    errors.push(`${location}: 素材路径超出了所在目录`)
+  const { assetsDirectory, absoluteFile, safe } = resolveAssetFile(baseDirectory, asset.file)
+  if (!safe) {
+    errors.push(`${location}/file: 素材路径必须位于 assets/ 目录且不能越界`)
     return
   }
+
+  let stats
   try {
-    await access(absoluteFile)
-  } catch {
-    errors.push(`${location}: 找不到素材文件 ${path.relative(root, absoluteFile)}`)
+    stats = await lstat(absoluteFile)
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      errors.push(`${location}: 找不到素材文件 ${displayPath(root, absoluteFile)}`)
+    } else {
+      errors.push(`${location}: 无法检查素材文件 ${displayPath(root, absoluteFile)}`)
+    }
     return
   }
+  if (stats.isSymbolicLink()) {
+    errors.push(`${location}/file: 素材文件不能是符号链接`)
+    return
+  }
+  if (!stats.isFile()) {
+    errors.push(`${location}/file: 素材路径必须指向普通文件`)
+    return
+  }
+
+  try {
+    const [realBaseDirectory, realAssetsDirectory, realFile] = await Promise.all([
+      realpath(baseDirectory),
+      realpath(assetsDirectory),
+      realpath(absoluteFile),
+    ])
+    if (
+      !pathIsWithin(realBaseDirectory, realAssetsDirectory) ||
+      !pathIsWithin(realAssetsDirectory, realFile)
+    ) {
+      errors.push(`${location}/file: 素材路径通过符号链接越出了 assets/ 目录`)
+      return
+    }
+  } catch {
+    errors.push(`${location}: 无法解析素材文件 ${displayPath(root, absoluteFile)}`)
+    return
+  }
+
   const digest = await sha256(absoluteFile)
   if (digest !== asset.sha256) errors.push(`${location}: SHA-256 与文件内容不符`)
   await checkRightsBasis({ root, rights: asset.rights, location, errors })
@@ -174,6 +240,85 @@ async function checkAssetFile({ root, baseDirectory, asset, location, errors }) 
   }
   if (!committablePrivacy.has(asset.privacy.status)) {
     errors.push(`${location}: 素材文件进入仓库前需完成隐私复核和必要脱敏`)
+  }
+}
+
+async function scanAssetDirectory({ root, baseDirectory, location, errors }) {
+  const assetsDirectory = path.resolve(baseDirectory, 'assets')
+  let stats
+  try {
+    stats = await lstat(assetsDirectory)
+  } catch (error) {
+    if (error?.code === 'ENOENT') return []
+    errors.push(`${location}: 无法读取素材目录 ${displayPath(root, assetsDirectory)}`)
+    return []
+  }
+  if (stats.isSymbolicLink()) {
+    errors.push(`${location}: 素材目录不能是符号链接 ${displayPath(root, assetsDirectory)}`)
+    return []
+  }
+  if (!stats.isDirectory()) {
+    errors.push(`${location}: assets/ 必须是目录`)
+    return []
+  }
+
+  try {
+    const [realBaseDirectory, realAssetsDirectory] = await Promise.all([
+      realpath(baseDirectory),
+      realpath(assetsDirectory),
+    ])
+    if (!pathIsWithin(realBaseDirectory, realAssetsDirectory)) {
+      errors.push(`${location}: 素材目录通过符号链接越出了所在目录`)
+      return []
+    }
+  } catch {
+    errors.push(`${location}: 无法解析素材目录 ${displayPath(root, assetsDirectory)}`)
+    return []
+  }
+
+  const files = []
+  const walk = async (directory) => {
+    let entries
+    try {
+      entries = await readdir(directory, { withFileTypes: true })
+    } catch {
+      errors.push(`${location}: 无法读取素材目录 ${displayPath(root, directory)}`)
+      return
+    }
+    for (const entry of entries) {
+      if (ignoredAssetEntry(entry.name)) continue
+      const absoluteEntry = path.resolve(directory, entry.name)
+      if (!pathIsWithin(assetsDirectory, absoluteEntry)) {
+        errors.push(`${location}: 素材目录项越界 ${displayPath(root, absoluteEntry)}`)
+        continue
+      }
+      if (entry.isSymbolicLink()) {
+        errors.push(`${location}: 素材目录中禁止符号链接 ${displayPath(root, absoluteEntry)}`)
+      } else if (entry.isDirectory()) {
+        await walk(absoluteEntry)
+      } else if (entry.isFile()) {
+        files.push(absoluteEntry)
+      } else {
+        errors.push(`${location}: 素材目录中存在不支持的文件类型 ${displayPath(root, absoluteEntry)}`)
+      }
+    }
+  }
+  await walk(assetsDirectory)
+  return files
+}
+
+async function checkAssetInventory({ root, baseDirectory, assets, location, errors }) {
+  const registeredFiles = new Set()
+  for (const asset of assets) {
+    const resolved = resolveAssetFile(baseDirectory, asset.file)
+    if (resolved.safe) registeredFiles.add(path.normalize(resolved.absoluteFile))
+  }
+
+  const files = await scanAssetDirectory({ root, baseDirectory, location, errors })
+  for (const file of files) {
+    if (!registeredFiles.has(path.normalize(file))) {
+      errors.push(`${location}: 未登记素材文件 ${displayPath(root, file)}`)
+    }
   }
 }
 
@@ -259,6 +404,13 @@ export async function validateCatalog(catalog) {
         errors,
       })
     }
+    await checkAssetInventory({
+      root,
+      baseDirectory: exhibit.__directory,
+      assets: exhibit.assets,
+      location: exhibit.__file,
+      errors,
+    })
   }
 
   for (const duplicate of findDuplicates(exhibits.map((exhibit) => exhibit.id))) {
@@ -342,6 +494,13 @@ export async function validateCatalog(catalog) {
         errors,
       })
     }
+    await checkAssetInventory({
+      root,
+      baseDirectory: root,
+      assets: sharedAssets.assets,
+      location: path.join(root, 'ASSETS.yml'),
+      errors,
+    })
     for (const [index, candidate] of sharedAssets.candidates.entries()) {
       const location = `${path.join(root, 'ASSETS.yml')}/candidates/${index}`
       const exhibit = exhibitById.get(candidate.exhibit_id)
